@@ -17,14 +17,17 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     appdata.cpp \
     fs.cpp \
-    simplecrypt.cpp
+    simplecrypt.cpp \
+    safeitem.cpp
 
 HEADERS  += mainwindow.h \
     appdata.h \
     fs.h \
-    simplecrypt.h
+    simplecrypt.h \
+    safeitem.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    safeitem.ui
 
 RESOURCES += \
     resources.qrc
