@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/random.png</file>
+        <file>images/eye.png</file>
+    </qresource>
+</RCC>

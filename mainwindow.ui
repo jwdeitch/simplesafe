@@ -225,8 +225,8 @@ border: 1px solid black;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Downloads/1492392817_view-01.png</normaloff>../../Downloads/1492392817_view-01.png</iconset>
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/eye.png</normaloff>:/images/images/eye.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -251,8 +251,8 @@ border: 1px solid black;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Downloads/1492392968_random-chart-node-path.png</normaloff>../../Downloads/1492392968_random-chart-node-path.png</iconset>
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/random.png</normaloff>:/images/images/random.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -288,6 +288,8 @@ border: none;</string>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
