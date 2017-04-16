@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
-    ui->listWidget->addItem("");
-    ui->listWidget->addItem("");
 
     for (int i = 0; i < 20; ++i) {
         QListWidgetItem *item = new QListWidgetItem;

@@ -20,9 +20,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>38</y>
      <width>239</width>
-     <height>419</height>
+     <height>381</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -66,8 +66,8 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
+     <x>250</x>
+     <y>70</y>
      <width>371</width>
      <height>241</height>
     </rect>
@@ -286,6 +286,33 @@ border: none;</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QFrame" name="searchBackdrop">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>239</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F0F3F4;
+border: none;
+border-right: 1px solid #B8B8B8;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>searchBackdrop</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>selectedNameLabel</zorder>
+  <zorder>newAssetFrame</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>newAssetBtn</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
