@@ -66,7 +66,7 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>40</x>
      <y>40</y>
      <width>371</width>
      <height>201</height>
@@ -81,32 +81,83 @@ border-right: 1px solid #B8B8B8;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QPushButton" name="passwordSelectBtn">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>10</y>
-      <width>84</width>
-      <height>20</height>
+      <x>20</x>
+      <y>19</y>
+      <width>113</width>
+      <height>32</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;</string>
+    </property>
     <property name="text">
-     <string>password</string>
+     <string>Password</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QPushButton" name="fileSelectBtn">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>10</y>
-      <width>44</width>
-      <height>20</height>
+      <x>140</x>
+      <y>18</y>
+      <width>113</width>
+      <height>32</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #ECEFF1;
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;</string>
+    </property>
     <property name="text">
-     <string>file</string>
+     <string>Files</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>351</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+border: none;
+border: 1px solid black;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>passwordSelectBtn</zorder>
+   <zorder>fileSelectBtn</zorder>
   </widget>
   <widget class="QPushButton" name="newAssetBtn">
    <property name="geometry">
