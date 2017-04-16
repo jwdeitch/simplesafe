@@ -15,9 +15,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    appdata.cpp
+    appdata.cpp \
+    fs.cpp \
+    simplecrypt.cpp
 
 HEADERS  += mainwindow.h \
-    appdata.h
+    appdata.h \
+    fs.h \
+    simplecrypt.h
 
 FORMS    += mainwindow.ui
