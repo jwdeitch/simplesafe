@@ -66,8 +66,8 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>70</y>
+     <x>270</x>
+     <y>120</y>
      <width>371</width>
      <height>241</height>
     </rect>
@@ -275,9 +275,13 @@ border: 1px solid black;</string>
      <height>21</height>
     </rect>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 18pt &quot;Times New Roman&quot;;
-border: none;</string>
+    <string notr="true">border: none;
+background-color:#F0F3F4;
+font: 75 18pt &quot;Times New Roman&quot;;</string>
    </property>
    <property name="text">
     <string>+</string>
