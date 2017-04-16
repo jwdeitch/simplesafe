@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
     ui->listWidget->addItem("");
 
@@ -17,4 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_newAssetBtn_clicked()
+{
+    ui->newAssetFrame->setVisible(true);
 }
