@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for (int i = 0; i < 20; ++i) {
         QListWidgetItem *item = new QListWidgetItem;
-        item->setSizeHint(QSize(150, 80));
+        item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
         ui->listWidget->setItemWidget(item, new safeitem);
     }
