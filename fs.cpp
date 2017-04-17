@@ -11,9 +11,8 @@ bool fs::isDirEmpty(QString dir) {
 
 void fs::writeFile(QString path, QString content) {
     QString filename = path + ".enc";
-    qDebug() << filename;
     QFile file(filename);
-    if (file.open(QIODevice::ReadWrite)) {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream stream(&file);
         stream << content;
     }

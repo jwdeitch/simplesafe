@@ -12,7 +12,10 @@ void appData::setMasterPassword(QString password) {
     BotanWrapper botan;
     botan.setSalt(constants::SALT);
     botan.setPassword(password);
-    fs::writeFile(appData::resourcesDirLocation() + "safe/cactus", botan.Encode(password));
+    if (appData::shouldInitialize()) {
+        QDir().mkdir(appData::resourcesDirLocation() + "safe");
+    }
+    fs::writeFile(appData::resourcesDirLocation() + "safe/cactus", botan.Encrypt(password));
 }
 
 bool appData::shouldInitialize() {
