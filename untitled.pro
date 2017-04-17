@@ -5,26 +5,30 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = untitled
 TEMPLATE = app
 
+include(botan.pri)
 
 SOURCES += main.cpp\
         mainwindow.cpp \
     appdata.cpp \
     fs.cpp \
     simplecrypt.cpp \
-    safeitem.cpp
+    safeitem.cpp \
+botanwrapper.cpp \
+botan.cpp
 
 HEADERS  += mainwindow.h \
     appdata.h \
     fs.h \
     simplecrypt.h \
-    safeitem.h
+    safeitem.h \
+botan.h \
+botanwrapper.h
 
 FORMS    += mainwindow.ui \
     safeitem.ui
