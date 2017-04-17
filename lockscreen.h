@@ -18,7 +18,7 @@ public:
     ~lockScreen();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_submitBtn_clicked();
 
 private:
     Ui::lockScreen *ui;

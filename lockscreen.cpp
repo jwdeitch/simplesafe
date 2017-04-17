@@ -17,7 +17,7 @@ lockScreen::~lockScreen()
     delete ui;
 }
 
-void lockScreen::on_pushButton_clicked()
+void lockScreen::on_submitBtn_clicked()
 {
     if (ui->password1->text() == ui->password2->text()) {
         appData::setMasterPassword(ui->password1->text());
