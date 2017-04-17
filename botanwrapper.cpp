@@ -4,16 +4,16 @@ BotanWrapper::BotanWrapper(QObject *parent) :
     QObject(parent)
 {
     //Set the default salt size
-    mSalt.resize(48);
+//    mSalt.resize(48);
 
-    //Set the default salt
-    for(int i = 0; i < mSalt.size(); i++)
-    {
-        mSalt[i] = i;
-    }
+//    //Set the default salt
+//    for(int i = 0; i < mSalt.size(); i++)
+//    {
+//        mSalt[i] = i;
+//    }
 
-    //Set the default password
-    mPassword = Hash("!@&^jdshUG24!T^!@*&!Y@()&^909+!-@!@#07");
+//    //Set the default password
+//    mPassword = Hash("!@&^jdshUG24!T^!@*&!Y@()&^909+!-@!@#07");
 }
 
 QString BotanWrapper::Hash(QString Data)

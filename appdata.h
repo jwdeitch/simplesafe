@@ -19,7 +19,7 @@ public:
     }
     void insertNewPassword(QString label, QString login, QString password);
     static bool shouldInitialize();
-    static void setMasterPassword();
+    static void setMasterPassword(QString password);
     static BotanWrapper botan;
 };
 

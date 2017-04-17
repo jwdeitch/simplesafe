@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     simplecrypt.cpp \
     safeitem.cpp \
 botanwrapper.cpp \
-botan.cpp
+botan.cpp \
+    lockscreen.cpp
 
 HEADERS  += mainwindow.h \
     appdata.h \
@@ -28,10 +29,12 @@ HEADERS  += mainwindow.h \
     simplecrypt.h \
     safeitem.h \
 botan.h \
-botanwrapper.h
+botanwrapper.h \
+    lockscreen.h
 
 FORMS    += mainwindow.ui \
-    safeitem.ui
+    safeitem.ui \
+    lockscreen.ui
 
 RESOURCES += \
     resources.qrc

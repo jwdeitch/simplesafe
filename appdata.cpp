@@ -2,15 +2,17 @@
 
 appData::appData() {}
 
-void insertNewPassword(QString label, QString login, QString password) {
+//void insertNewPassword(QString label, QString login, QString password) {
 
 
 
-}
+//}
 
-static void setMasterPassword(QString password) {
-    appData::botan.setPassword(constants::SALT + password);
-
+void appData::setMasterPassword(QString password) {
+    BotanWrapper botan;
+    botan.setSalt(constants::SALT);
+    botan.setPassword(password);
+    fs::writeFile(appData::resourcesDirLocation() + "safe/cactus", botan.Encode(password));
 }
 
 bool appData::shouldInitialize() {
