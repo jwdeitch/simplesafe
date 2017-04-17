@@ -4,6 +4,11 @@
 #include <QString>
 #include <QStandardPaths>
 #include "fs.h"
+#include "botanwrapper.h"
+
+namespace constants {
+    const QString SALT = "A2{479-?Wyz?HQaM8>";
+}
 
 class appData
 {
@@ -14,6 +19,8 @@ public:
     }
     void insertNewPassword(QString label, QString login, QString password);
     static bool shouldInitialize();
+    static void setMasterPassword();
+    static BotanWrapper botan;
 };
 
 #endif // APPDATA_H

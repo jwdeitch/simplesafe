@@ -1,11 +1,15 @@
 #include "appdata.h"
-#include "botanwrapper.h"
 
 appData::appData() {}
 
 void insertNewPassword(QString label, QString login, QString password) {
 
 
+
+}
+
+static void setMasterPassword(QString password) {
+    appData::botan.setPassword(constants::SALT + password);
 
 }
 
