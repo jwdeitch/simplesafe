@@ -60,8 +60,8 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QLabel" name="selectedNameLabel">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>50</y>
+     <x>260</x>
+     <y>20</y>
      <width>60</width>
      <height>16</height>
     </rect>
@@ -321,12 +321,23 @@ border-right: 1px solid #B8B8B8;</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>333</x>
+     <y>10</y>
+     <width>281</width>
+     <height>78</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>listWidget</zorder>
   <zorder>selectedNameLabel</zorder>
   <zorder>newAssetFrame</zorder>
   <zorder>lineEdit</zorder>
   <zorder>newAssetBtn</zorder>
+  <zorder>textEdit</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

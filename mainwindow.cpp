@@ -19,7 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->listWidget->setItemWidget(item, new safeitem);
     }
 
-    ui->selectedNameLabel->setText(appData::ResourcesDirLocation());
+//    ui->textEdit->setText(appData::ResourcesDirLocation());
+        ui->textEdit->setText(QString::number(appData::shouldInitialize()));
 
 
 
