@@ -1,11 +1,10 @@
 #include "appdata.h"
 
-appData::appData()
-    : ResourcesDirLocation{QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory)}
-{}
+appData::appData() {}
 
 
 void insertNewPassword(QString name, QString password, QString notes) {
+
 
 
 }

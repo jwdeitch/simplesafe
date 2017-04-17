@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QStandardPaths>
 #include "safeitem.h"
+#include "appdata.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -18,7 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->listWidget->setItemWidget(item, new safeitem);
     }
 
-    QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory);
+    ui->selectedNameLabel->setText(appData::ResourcesDirLocation());
+
+
 
 }
 

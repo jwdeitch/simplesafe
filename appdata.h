@@ -8,7 +8,7 @@ class appData
 {
 public:
     appData();
-    const QString & ResourcesDirLocation;
+    static QString ResourcesDirLocation() { return QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory); }
     void insertNewPassword(QString name, QString password, QString notes);
 };
 
