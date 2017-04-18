@@ -3,6 +3,9 @@
 #include <QStandardPaths>
 #include "safeitem.h"
 #include "appdata.h"
+#include <QStringList>
+
+#include "QDebug"
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -12,17 +15,27 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
-    for (int i = 0; i < 20; ++i) {
+//    for (int i = 0; i < 20; ++i) {
+//        QListWidgetItem *item = new QListWidgetItem;
+//        item->setSizeHint(QSize(100, 30));
+//        ui->listWidget->addItem(item);
+//        ui->listWidget->setItemWidget(item, new safeitem);
+//    }
+
+    QStringList test = fs::readDir(appData::resourcesDirLocation());
+    for (int i = 0; i < test.size(); ++i) {
+        QString fileName = test[i];
+        if (fileName == ".cactus.enc") {
+            continue;
+        }
+//        if (fileName)
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
-        ui->listWidget->setItemWidget(item, new safeitem);
+        safeitem *safeListItem = new safeitem;
+        safeListItem->setLabel(test[i]);
+        ui->listWidget->setItemWidget(item, safeListItem);
     }
-
-//    ui->textEdit->setText(appData::ResourcesDirLocation());
-        ui->textEdit->setText(QString::number(appData::shouldInitialize()));
-
-
 
 }
 

@@ -8,6 +8,10 @@ safeitem::safeitem(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void safeitem::setLabel(QString text) {
+    ui->label->setText(text);
+}
+
 safeitem::~safeitem()
 {
     delete ui;

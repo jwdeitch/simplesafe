@@ -16,7 +16,7 @@ public:
     appData();
     static QString resourcesDirLocation() {
         QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory);
-        return path.left(path.length() - 1);
+        return path.left(path.length() - 1) + "safe/";
     }
     void insertNewPassword(QString label, QString login, QString password);
     static bool shouldInitialize();

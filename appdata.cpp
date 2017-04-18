@@ -13,13 +13,13 @@ void appData::setMasterPassword(QString password) {
     botan.setSalt(constants::SALT);
     botan.setPassword(password);
     if (appData::shouldInitialize()) {
-        QDir().mkdir(appData::resourcesDirLocation() + "safe");
+        QDir().mkdir(appData::resourcesDirLocation());
     }
-    fs::writeFile(appData::resourcesDirLocation() + "safe/cactus", botan.Encrypt(password));
+    fs::writeFile(appData::resourcesDirLocation() + ".cactus", botan.Encrypt(password));
 }
 
 bool appData::shouldInitialize() {
-    return fs::isDirEmpty(appData::resourcesDirLocation() + "safe");
+    return fs::isDirEmpty(appData::resourcesDirLocation());
 }
 
 //QString

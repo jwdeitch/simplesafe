@@ -5,8 +5,13 @@ fs::fs()
 
 }
 
+QStringList fs::readDir(QString path) {
+    QDir recoredDir(path);
+    return recoredDir.entryList(QDir::NoDotAndDotDot | QDir::Files);
+}
+
 bool fs::isDirEmpty(QString dir) {
-    return QDir(dir).entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries).count() == 0;
+    return QDir(dir).entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries|QDir::Hidden).count() == 0;
 }
 
 void fs::writeFile(QString path, QString content) {

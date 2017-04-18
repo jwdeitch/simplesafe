@@ -2,6 +2,7 @@
 #define SAFEITEM_H
 
 #include <QWidget>
+#include <QString>
 
 namespace Ui {
 class safeitem;
@@ -13,6 +14,7 @@ class safeitem : public QWidget
 
 public:
     explicit safeitem(QWidget *parent = 0);
+    void setLabel(QString text);
     ~safeitem();
 
 private:
