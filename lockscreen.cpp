@@ -20,7 +20,8 @@ lockScreen::~lockScreen()
 void lockScreen::on_submitBtn_clicked()
 {
     if (ui->password1->text() == ui->password2->text()) {
-        appData::setMasterPassword(ui->password1->text());
+        appData *ad = new appData(ui->password1->text());
+        ad->setMasterPassword(ui->password1->text());
     }
 }
 

@@ -58,8 +58,8 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_masterPassword_returnPressed()
 {
-    qDebug() << "triggered";
-    if (appData::checkMasterPassword(ui->masterPassword->text())) {
+    appData *ad = new appData(ui->masterPassword->text());
+    if (ad->checkMasterPassword(ui->masterPassword->text())) {
         ui->lockFrame->setVisible(false);
     }
 }

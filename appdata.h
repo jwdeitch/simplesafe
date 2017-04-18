@@ -13,16 +13,16 @@ namespace constants {
 class appData
 {
 public:
-    appData();
+    appData(QString password);
     static QString resourcesDirLocation() {
         QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory);
         return path.left(path.length() - 1) + "safe/";
     }
     void insertNewPassword(QString label, QString login, QString password);
     static bool shouldInitialize();
-    static void setMasterPassword(QString password);
-    static bool checkMasterPassword(QString password);
-    static BotanWrapper botan;
+    void setMasterPassword(QString password);
+    bool checkMasterPassword(QString password);
+    BotanWrapper botan;
 };
 
 #endif // APPDATA_H
