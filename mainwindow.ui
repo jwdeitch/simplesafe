@@ -66,8 +66,8 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QLabel" name="selectedNameLabel">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>20</y>
+     <x>430</x>
+     <y>30</y>
      <width>60</width>
      <height>16</height>
     </rect>
@@ -79,8 +79,8 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>140</y>
+     <x>30</x>
+     <y>40</y>
      <width>371</width>
      <height>241</height>
     </rect>
@@ -327,21 +327,11 @@ border-right: 1px solid #B8B8B8;</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>333</x>
-     <y>10</y>
-     <width>281</width>
-     <height>78</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QFrame" name="lockFrame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>230</y>
+     <x>240</x>
+     <y>130</y>
      <width>241</width>
      <height>181</height>
     </rect>
@@ -374,14 +364,41 @@ border: 1px solid #D4D5D5;</string>
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>60</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>90</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>selectedNameLabel</zorder>
   <zorder>lineEdit</zorder>
   <zorder>newAssetBtn</zorder>
-  <zorder>textEdit</zorder>
   <zorder>listWidget</zorder>
   <zorder>newAssetFrame</zorder>
   <zorder>lockFrame</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

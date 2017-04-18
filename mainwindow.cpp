@@ -31,6 +31,7 @@ void MainWindow::refreshListView() {
     QStringList dirContents = fs::readDir(resourcePath);
     appData *ap = new appData(masterpassword);
     for (int i = 0; i < dirContents.size(); ++i) {
+        qDebug() << dirContents[i];
         QJsonObject safelet = ap->retrievePasswordContents(resourcePath + dirContents[i]);
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(100, 30));

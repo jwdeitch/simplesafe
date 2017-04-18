@@ -17,7 +17,7 @@ void appData::insertNewPassword(QString label, QString login, QString password) 
     });
     QJsonDocument doc(data1);
     QString strJson(doc.toJson(QJsonDocument::Compact));
-    fs::writeFile(appData::resourcesDirLocation() + random_string(10), botan.Encrypt(strJson));
+    fs::writeFile(appData::resourcesDirLocation() + random_string(10) + ".p", botan.Encrypt(strJson));
 }
 
 QJsonObject appData::retrievePasswordContents(QString path) {
