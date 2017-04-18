@@ -23,3 +23,12 @@ void fs::writeFile(QString path, QString content) {
     }
     file.close();
 }
+
+QString fs::readFile(QString path) {
+    QFile file(path);
+    if(!file.open(QFile::ReadOnly | QFile::Text)) {
+        QMessageLogger(__FILE__, __LINE__, 0).debug() << "Can't open file";
+    }
+    QTextStream in(&file);
+    return in.readAll();
+}

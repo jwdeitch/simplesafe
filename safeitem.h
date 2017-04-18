@@ -15,6 +15,7 @@ class safeitem : public QWidget
 public:
     explicit safeitem(QWidget *parent = 0);
     void setLabel(QString text);
+    void is_password(bool password);
     ~safeitem();
 
 private:

@@ -14,6 +14,7 @@ public:
     static bool isDirEmpty(QString dir);
     static void writeFile(QString path, QString content);
     static QStringList readDir(QString path);
+    static QString readFile(QString path);
 };
 
 #endif // FS_H

@@ -28,7 +28,9 @@ MainWindow::MainWindow(QWidget *parent) :
         if (fileName == ".cactus.enc") {
             continue;
         }
-//        if (fileName)
+        if (fileName.endsWith(".p.env")) {
+
+        }
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
@@ -47,4 +49,17 @@ MainWindow::~MainWindow()
 void MainWindow::on_newAssetBtn_clicked()
 {
     ui->newAssetFrame->setVisible(true);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}
+
+void MainWindow::on_masterPassword_returnPressed()
+{
+    qDebug() << "triggered";
+    if (appData::checkMasterPassword(ui->masterPassword->text())) {
+        ui->lockFrame->setVisible(false);
+    }
 }

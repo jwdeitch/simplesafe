@@ -18,6 +18,10 @@ public:
 private slots:
     void on_newAssetBtn_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_masterPassword_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };

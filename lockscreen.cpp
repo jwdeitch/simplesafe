@@ -23,3 +23,9 @@ void lockScreen::on_submitBtn_clicked()
         appData::setMasterPassword(ui->password1->text());
     }
 }
+
+void is_password(bool password) {
+
+
+
+}

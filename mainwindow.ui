@@ -10,6 +10,12 @@
     <height>419</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -35,13 +41,13 @@
     </sizepolicy>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">QListView::item:selected { background: #D8DEE1 };
-background-color: #F0F3F4;
+    <string notr="true">background-color: #F0F3F4;
 border: none;
-border-right: 1px solid #B8B8B8;</string>
+border-right: 1px solid #B8B8B8;
+QListView::item:selected { background: #D8DEE1 };</string>
    </property>
    <property name="resizeMode">
     <enum>QListView::Adjust</enum>
@@ -331,13 +337,51 @@ border-right: 1px solid #B8B8B8;</string>
     </rect>
    </property>
   </widget>
+  <widget class="QFrame" name="lockFrame">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>230</y>
+     <width>241</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: gray;
+border: none;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLineEdit" name="masterPassword">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#F5F5F5;
+border: 1px solid #D4D5D5;</string>
+    </property>
+   </widget>
+  </widget>
   <zorder>searchBackdrop</zorder>
-  <zorder>listWidget</zorder>
   <zorder>selectedNameLabel</zorder>
-  <zorder>newAssetFrame</zorder>
   <zorder>lineEdit</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>textEdit</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>lockFrame</zorder>
+  <zorder>newAssetFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
