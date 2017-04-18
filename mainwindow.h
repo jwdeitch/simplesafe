@@ -18,10 +18,8 @@ public:
 
 private slots:
     void on_newAssetBtn_clicked();
-
-    void on_pushButton_clicked();
-
     void on_masterPassword_returnPressed();
+    void on_createNewLoginBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

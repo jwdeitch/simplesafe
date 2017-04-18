@@ -5,6 +5,9 @@
 #include <QStandardPaths>
 #include "fs.h"
 #include "botanwrapper.h"
+#include <QJsonValue>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 namespace constants {
     const QString SALT = "A2{479-?Wyz?HQaM8>";
@@ -23,6 +26,9 @@ public:
     void setMasterPassword(QString password);
     bool checkMasterPassword(QString password);
     BotanWrapper botan;
+
+private:
+    QString random_string( int length );
 };
 
 #endif // APPDATA_H

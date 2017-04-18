@@ -8,11 +8,17 @@ appData::appData(QString password) {
     botan.setPassword(password);
 }
 
-//void insertNewPassword(QString label, QString login, QString password) {
-
-
-
-//}
+void appData::insertNewPassword(QString label, QString login, QString password) {
+    auto data1 = QJsonObject(
+    {
+        qMakePair(QString("label"), QJsonValue(label)),
+        qMakePair(QString("login"), QJsonValue(login)),
+        qMakePair(QString("password"), QJsonValue(password))
+    });
+    QJsonDocument doc(data1);
+    QString strJson(doc.toJson(QJsonDocument::Compact));
+    fs::writeFile(appData::resourcesDirLocation() + random_string(10), botan.Encrypt(strJson));
+}
 
 void appData::setMasterPassword(QString password) {
     if (appData::shouldInitialize()) {
@@ -35,6 +41,23 @@ bool appData::checkMasterPassword(QString password) {
 
     return false;
 
+}
+
+// http://stackoverflow.com/a/12468109
+QString appData::random_string( int length )
+{
+    auto randchar = []() -> char
+    {
+        const char charset[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+        const size_t max_index = (sizeof(charset) - 1);
+        return charset[ rand() % max_index ];
+    };
+    QString str(length,0);
+    std::generate_n( str.begin(), length, randchar );
+    return str;
 }
 
 //QString

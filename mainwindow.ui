@@ -167,7 +167,7 @@ border: 1px solid black;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="newlogintitletxt">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -180,7 +180,7 @@ border: 1px solid black;</string>
       <string>Label</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="newlogintxt">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -193,7 +193,7 @@ border: 1px solid black;</string>
       <string>Login</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="newpasswordtxt">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -206,7 +206,7 @@ border: 1px solid black;</string>
       <string>Password</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="createNewLoginBtn">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -340,7 +340,7 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QFrame" name="lockFrame">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>230</y>
      <width>241</width>
      <height>181</height>
@@ -380,8 +380,8 @@ border: 1px solid #D4D5D5;</string>
   <zorder>newAssetBtn</zorder>
   <zorder>textEdit</zorder>
   <zorder>listWidget</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>newAssetFrame</zorder>
+  <zorder>lockFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

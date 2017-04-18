@@ -5,7 +5,7 @@
 #include "appdata.h"
 #include <QStringList>
 
-#include "QDebug"
+QString masterpassword;
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -51,15 +51,17 @@ void MainWindow::on_newAssetBtn_clicked()
     ui->newAssetFrame->setVisible(true);
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
-}
-
 void MainWindow::on_masterPassword_returnPressed()
 {
     appData *ad = new appData(ui->masterPassword->text());
     if (ad->checkMasterPassword(ui->masterPassword->text())) {
+        masterpassword = ui->masterPassword->text();
         ui->lockFrame->setVisible(false);
     }
+}
+
+void MainWindow::on_createNewLoginBtn_clicked()
+{
+    appData *ap = new appData(masterpassword);
+    ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
 }
