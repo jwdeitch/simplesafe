@@ -20,6 +20,7 @@ private slots:
     void on_newAssetBtn_clicked();
     void on_masterPassword_returnPressed();
     void on_createNewLoginBtn_clicked();
+    void refreshListView();
 
 private:
     Ui::MainWindow *ui;

@@ -20,6 +20,13 @@ void appData::insertNewPassword(QString label, QString login, QString password) 
     fs::writeFile(appData::resourcesDirLocation() + random_string(10), botan.Encrypt(strJson));
 }
 
+QJsonObject appData::retrievePasswordContents(QString path) {
+    QString fileContents = fs::readFile(path);
+    QString decrpytedContents = botan.Decrypt(fileContents);
+    QJsonDocument unencrpytedFile = QJsonDocument::fromJson(decrpytedContents.toUtf8());
+    return unencrpytedFile.object();
+}
+
 void appData::setMasterPassword(QString password) {
     if (appData::shouldInitialize()) {
         QDir().mkdir(appData::resourcesDirLocation());

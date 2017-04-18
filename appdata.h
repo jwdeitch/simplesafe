@@ -25,6 +25,7 @@ public:
     static bool shouldInitialize();
     void setMasterPassword(QString password);
     bool checkMasterPassword(QString password);
+    QJsonObject retrievePasswordContents(QString path);
     BotanWrapper botan;
 
 private:
