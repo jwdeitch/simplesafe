@@ -13,28 +13,28 @@ TEMPLATE = app
 
 include(botan.pri)
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    appdata.cpp \
-    fs.cpp \
-    simplecrypt.cpp \
-    safeitem.cpp \
-botanwrapper.cpp \
-botan.cpp \
-    lockscreen.cpp
+SOURCES += sources/main.cpp\
+        sources/mainwindow.cpp \
+    sources/appdata.cpp \
+    sources/fs.cpp \
+    sources/simplecrypt.cpp \
+    sources/safeitem.cpp \
+    sources/botanwrapper.cpp \
+    sources/botan.cpp \
+    sources/lockscreen.cpp
 
-HEADERS  += mainwindow.h \
-    appdata.h \
-    fs.h \
-    simplecrypt.h \
-    safeitem.h \
-botan.h \
-botanwrapper.h \
-    lockscreen.h
+HEADERS  += headers/mainwindow.h \
+    headers/appdata.h \
+    headers/fs.h \
+    headers/simplecrypt.h \
+    headers/safeitem.h \
+    headers/botan.h \
+    headers/botanwrapper.h \
+    headers/lockscreen.h
 
-FORMS    += mainwindow.ui \
-    safeitem.ui \
-    lockscreen.ui
+FORMS    += forms/mainwindow.ui \
+    forms/safeitem.ui \
+    forms/lockscreen.ui
 
 RESOURCES += \
     resources.qrc
