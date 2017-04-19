@@ -1,9 +1,9 @@
-#include "lockscreen.h"
+#include "headers/lockscreen.h"
 #include "ui_lockscreen.h"
 
 #include <QString>
 #include <QDebug>
-#include "appdata.h"
+#include "headers/appdata.h"
 
 lockScreen::lockScreen(QWidget *parent) :
     QDialog(parent),

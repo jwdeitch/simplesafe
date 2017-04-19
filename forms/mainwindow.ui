@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
+    <width>525</width>
     <height>419</height>
    </rect>
   </property>
@@ -66,8 +66,8 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QLabel" name="selectedNameLabel">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>30</y>
+     <x>260</x>
+     <y>10</y>
      <width>60</width>
      <height>16</height>
     </rect>
@@ -79,8 +79,8 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
+     <x>20</x>
+     <y>160</y>
      <width>371</width>
      <height>241</height>
     </rect>
@@ -238,7 +238,7 @@ border: 1px solid black;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="resources.qrc">
+      <iconset resource="../resources.qrc">
        <normaloff>:/images/images/eye.png</normaloff>:/images/images/eye.png</iconset>
      </property>
      <property name="iconSize">
@@ -264,7 +264,7 @@ border: 1px solid black;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="resources.qrc">
+      <iconset resource="../resources.qrc">
        <normaloff>:/images/images/random.png</normaloff>:/images/images/random.png</iconset>
      </property>
      <property name="iconSize">
@@ -330,8 +330,8 @@ border-right: 1px solid #B8B8B8;</string>
   <widget class="QFrame" name="lockFrame">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>130</y>
+     <x>280</x>
+     <y>230</y>
      <width>241</width>
      <height>181</height>
     </rect>
@@ -363,12 +363,14 @@ border: none;</string>
 border: 1px solid #D4D5D5;</string>
     </property>
    </widget>
+   <zorder>masterPassword</zorder>
+   <zorder>newAssetFrame</zorder>
   </widget>
   <widget class="QLabel" name="selectedLoginLabel">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>60</y>
+     <x>260</x>
+     <y>30</y>
      <width>60</width>
      <height>16</height>
     </rect>
@@ -380,14 +382,50 @@ border: 1px solid #D4D5D5;</string>
   <widget class="QLabel" name="selectedPasswordLabel">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>90</y>
-     <width>60</width>
-     <height>16</height>
+     <x>260</x>
+     <y>50</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;
+border: 1px solid gray;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>50</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/images/copy.png</normaloff>:/images/images/copy.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <zorder>searchBackdrop</zorder>
@@ -399,10 +437,11 @@ border: 1px solid #D4D5D5;</string>
   <zorder>lockFrame</zorder>
   <zorder>selectedLoginLabel</zorder>
   <zorder>selectedPasswordLabel</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

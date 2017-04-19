@@ -1,4 +1,4 @@
-#include "safeitem.h"
+#include "headers/safeitem.h"
 #include "ui_safeitem.h"
 
 safeitem::safeitem(QWidget *parent) :
@@ -14,6 +14,8 @@ void safeitem::setLabel(QString text) {
 
 void safeitem::setProperties(QJsonObject jsonObj) {
     label = jsonObj["label"].toString();
+    login = jsonObj["login"].toString();
+    password = jsonObj["password"].toString();
     setLabel(label);
 }
 

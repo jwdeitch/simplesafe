@@ -1,4 +1,4 @@
-#include "botanwrapper.h"
+#include "headers/botanwrapper.h"
 
 BotanWrapper::BotanWrapper(QObject *parent) :
     QObject(parent)

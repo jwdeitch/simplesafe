@@ -1,8 +1,8 @@
-#include "mainwindow.h"
+#include "headers/mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QStandardPaths>
-#include "safeitem.h"
-#include "appdata.h"
+#include "headers/safeitem.h"
+#include "headers/appdata.h"
 #include <QStringList>
 #include <QVector>
 #include <QDebug>
