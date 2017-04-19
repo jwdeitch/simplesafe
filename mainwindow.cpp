@@ -7,7 +7,7 @@
 #include <QVector>
 #include <QDebug>
 
-QString masterpassword;
+QString masterpassword = NULL;
 QVector<QJsonObject> safeItems;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -30,12 +30,12 @@ void MainWindow::on_newAssetBtn_clicked()
 }
 
 void MainWindow::refreshListView() {
+    ui->listWidget->clear();
     QString resourcePath = appData::resourcesDirLocation();
     QStringList dirContents = fs::readDir(resourcePath);
     appData *ap = new appData(masterpassword);
     for (int i = 0; i < dirContents.size(); ++i) {
         QJsonObject safelet = ap->retrievePasswordContents(resourcePath + dirContents[i]);
-        safeItems.append(safelet);
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
@@ -68,4 +68,13 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     ui->selectedNameLabel->setText(si->getLabel());
     ui->selectedLoginLabel->setText(si->getLogin());
     ui->selectedPasswordLabel->setText(si->getPassword());
+}
+
+void MainWindow::setMasterPassword(QString password) {
+    masterpassword = password;
+    ui->lockFrame->setVisible(false);
+}
+
+bool MainWindow::isLocked() {
+    return masterpassword == NULL;
 }

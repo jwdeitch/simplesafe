@@ -24,6 +24,7 @@ void lockScreen::on_submitBtn_clicked()
         ad->setMasterPassword(ui->password1->text());
         hide();
         MainWindow *w = new MainWindow();
+        w->setMasterPassword(ui->password1->text());
         w->show();
     }
 }

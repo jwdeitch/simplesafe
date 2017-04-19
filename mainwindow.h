@@ -14,6 +14,8 @@ class MainWindow : public QDialog
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void setMasterPassword(QString password);
+    bool isLocked();
 
     ~MainWindow();
 
@@ -22,7 +24,6 @@ private slots:
     void on_masterPassword_returnPressed();
     void on_createNewLoginBtn_clicked();
     void refreshListView();
-
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
