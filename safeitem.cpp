@@ -12,6 +12,31 @@ void safeitem::setLabel(QString text) {
     ui->label->setText(text);
 }
 
+void safeitem::setProperties(QJsonObject jsonObj) {
+    label = jsonObj["label"].toString();
+    setLabel(label);
+}
+
+QString safeitem::getLabel() {
+    return label;
+}
+
+QString safeitem::getLogin() {
+    return login;
+}
+
+QString safeitem::getPassword() {
+    return password;
+}
+
+void safeitem::setLogin(QString text) {
+    login = text;
+}
+
+void safeitem::setPassword(QString text) {
+    password = text;
+}
+
 safeitem::~safeitem()
 {
     delete ui;

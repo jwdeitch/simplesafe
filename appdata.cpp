@@ -41,7 +41,6 @@ bool appData::shouldInitialize() {
 bool appData::checkMasterPassword(QString password) {
     QString enteredPassword = botan.Encrypt(password);
     QString masterPassword = fs::readFile(appData::resourcesDirLocation() + ".cactus.enc");
-    qDebug() << enteredPassword << masterPassword;
     if (enteredPassword == masterPassword) {
         return true;
     }

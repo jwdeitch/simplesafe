@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+class QListWidgetItem;
 namespace Ui {
 class MainWindow;
 }
@@ -21,6 +22,8 @@ private slots:
     void on_masterPassword_returnPressed();
     void on_createNewLoginBtn_clicked();
     void refreshListView();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

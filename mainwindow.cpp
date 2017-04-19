@@ -4,8 +4,11 @@
 #include "safeitem.h"
 #include "appdata.h"
 #include <QStringList>
+#include <QVector>
+#include <QDebug>
 
 QString masterpassword;
+QVector<QJsonObject> safeItems;
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -31,13 +34,13 @@ void MainWindow::refreshListView() {
     QStringList dirContents = fs::readDir(resourcePath);
     appData *ap = new appData(masterpassword);
     for (int i = 0; i < dirContents.size(); ++i) {
-        qDebug() << dirContents[i];
         QJsonObject safelet = ap->retrievePasswordContents(resourcePath + dirContents[i]);
+        safeItems.append(safelet);
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
         safeitem *safeListItem = new safeitem;
-        safeListItem->setLabel(safelet["label"].toString());
+        safeListItem->setProperties(safelet);
         ui->listWidget->setItemWidget(item, safeListItem);
     }
 }
@@ -56,4 +59,13 @@ void MainWindow::on_createNewLoginBtn_clicked()
 {
     appData *ap = new appData(masterpassword);
     ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
+    refreshListView();
+}
+
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(item) );
+    ui->selectedNameLabel->setText(si->getLabel());
+    ui->selectedLoginLabel->setText(si->getLogin());
+    ui->selectedPasswordLabel->setText(si->getPassword());
 }

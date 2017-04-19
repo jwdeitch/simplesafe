@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "appdata.h"
 #include <QString>
+#include "mainwindow.h"
 
 namespace Ui {
 class lockScreen;

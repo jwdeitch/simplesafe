@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QString>
+#include <QJsonObject>
 
 namespace Ui {
 class safeitem;
@@ -15,8 +16,19 @@ class safeitem : public QWidget
 public:
     explicit safeitem(QWidget *parent = 0);
     void setLabel(QString text);
+    void setLogin(QString text);
+    void setPassword(QString text);
     void is_password(bool password);
+    void setProperties(QJsonObject jsonObj);
+    QString getLabel();
+    QString getLogin();
+    QString getPassword();
     ~safeitem();
+
+private:
+    QString label;
+    QString login;
+    QString password;
 
 private:
     Ui::safeitem *ui;
