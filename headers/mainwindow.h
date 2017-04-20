@@ -18,7 +18,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setMasterPassword(QString password);
     bool isLocked();
-
+    void copyToClipboard(QString text);
     ~MainWindow();
 
 private slots:
@@ -28,15 +28,15 @@ private slots:
     void refreshListView();
     void on_listWidget_itemClicked(QListWidgetItem *item);
     void on_inputPassPeek_pressed();
-    void copyToClipboard(QString text);
     void resetClipboardText();
     void on_inputPassPeek_released();
     void showGenerator();
     void on_retrievePassPeek_pressed();
-
     void on_retrievePassPeek_released();
-
     void on_copyToClipboardBtn_clicked();
+    void on_openGeneratorNewBtn_clicked();
+
+    void on_closeNewPwPanel_clicked();
 
 private:
     Ui::MainWindow *ui;

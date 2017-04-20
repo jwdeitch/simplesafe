@@ -1,6 +1,7 @@
 #include "headers/passwordgenerator.h"
 #include "ui_passwordgenerator.h"
 #include <QDebug>
+#include <headers/mainwindow.h>
 
 passwordgenerator::passwordgenerator(QWidget *parent) :
     QWidget(parent),
@@ -12,6 +13,7 @@ passwordgenerator::passwordgenerator(QWidget *parent) :
 }
 
 void passwordgenerator::generate() {
+    ui->PasswordBox->clear();
     const QString possibleCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
     const QString possibleSymbols("!@#$%^&*()_+/][{}><,.|");
 
@@ -36,7 +38,7 @@ void passwordgenerator::generate() {
 
     std::random_shuffle(std::begin(randomStr), std::end(randomStr));
     qDebug() << randomStr << " |||| " << randomStr.size();
-    ui->PasswordBox->setHtml("<br>");
+    ui->PasswordBox->insertHtml("<br>");
     ui->PasswordBox->insertPlainText(randomStr);
     ui->PasswordBox->setAlignment(Qt::AlignCenter);
 }
@@ -53,12 +55,6 @@ void passwordgenerator::on_refreshBtn_clicked()
 
 void passwordgenerator::on_CopyBtn_clicked()
 {
-    QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText(ui->PasswordBox->toPlainText().simplified());
-    QTimer::singleShot(45000, this, SLOT(clearClipboard()));
-}
-
-void passwordgenerator::clearClipboard() {
-    QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText("");
+    MainWindow *mw = new MainWindow();
+    mw->copyToClipboard(ui->PasswordBox->toPlainText().simplified());
 }

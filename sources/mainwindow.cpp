@@ -123,3 +123,14 @@ void MainWindow::on_copyToClipboardBtn_clicked()
 {
     copyToClipboard(ui->viewSelectedPassword->text());
 }
+
+void MainWindow::on_openGeneratorNewBtn_clicked()
+{
+    passwordgenerator *pw = new passwordgenerator();
+    pw->show();
+}
+
+void MainWindow::on_closeNewPwPanel_clicked()
+{
+    ui->newAssetFrame->setVisible(false);
+}
