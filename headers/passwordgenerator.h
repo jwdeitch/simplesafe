@@ -2,6 +2,8 @@
 #define PASSWORDGENERATOR_H
 
 #include <QWidget>
+#include <QClipboard>
+#include <QTimer>
 #include <QString>
 
 namespace Ui {
@@ -19,6 +21,8 @@ public:
 
 private slots:
     void on_refreshBtn_clicked();
+    void clearClipboard();
+    void on_CopyBtn_clicked();
 
 private:
     Ui::passwordgenerator *ui;
