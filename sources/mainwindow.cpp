@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
+    ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
@@ -67,7 +70,7 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(item) );
     ui->selectedNameLabel->setText(si->getLabel());
     ui->selectedLoginLabel->setText(si->getLogin());
-    ui->selectedPasswordLabel->setText(si->getPassword());
+    ui->viewSelectedPassword->setText(si->getPassword());
 }
 
 void MainWindow::setMasterPassword(QString password) {
@@ -77,4 +80,24 @@ void MainWindow::setMasterPassword(QString password) {
 
 bool MainWindow::isLocked() {
     return masterpassword == NULL;
+}
+
+void MainWindow::on_inputPassPeek_pressed()
+{
+    ui->newpasswordtxt->setEchoMode(QLineEdit::Normal);
+}
+
+void MainWindow::on_inputPassPeek_released()
+{
+    ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
+}
+
+void MainWindow::on_retrievePassPeek_pressed()
+{
+    ui->viewSelectedPassword->setEchoMode(QLineEdit::Normal);
+}
+
+void MainWindow::on_retrievePassPeek_released()
+{
+    ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
 }

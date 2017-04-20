@@ -25,6 +25,12 @@ private slots:
     void on_createNewLoginBtn_clicked();
     void refreshListView();
     void on_listWidget_itemClicked(QListWidgetItem *item);
+    void on_inputPassPeek_pressed();
+
+    void on_inputPassPeek_released();
+    void on_retrievePassPeek_pressed();
+
+    void on_retrievePassPeek_released();
 
 private:
     Ui::MainWindow *ui;
