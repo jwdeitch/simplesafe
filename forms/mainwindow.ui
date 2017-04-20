@@ -575,6 +575,25 @@ border-top:1px solid #d6d6d6;</string>
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="copiedLabelMain">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>154</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none; color:green;background-color: none;</string>
+   </property>
+   <property name="text">
+    <string>Copied!</string>
+   </property>
+  </widget>
   <zorder>viewSelectedPassword</zorder>
   <zorder>label</zorder>
   <zorder>searchBackdrop</zorder>
@@ -588,6 +607,7 @@ border-top:1px solid #d6d6d6;</string>
   <zorder>copyToClipboardBtn</zorder>
   <zorder>retrievePassPeek</zorder>
   <zorder>searchBackdrop_2</zorder>
+  <zorder>copiedLabelMain</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

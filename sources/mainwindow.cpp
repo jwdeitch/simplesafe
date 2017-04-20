@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
+    ui->copiedLabelMain->setVisible(false);
     ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
@@ -121,7 +122,11 @@ void MainWindow::showGenerator() {
 
 void MainWindow::on_copyToClipboardBtn_clicked()
 {
-    copyToClipboard(ui->viewSelectedPassword->text());
+    if (ui->viewSelectedPassword->text().size() > 0) {
+        copyToClipboard(ui->viewSelectedPassword->text());
+        ui->copiedLabelMain->setVisible(true);
+        QTimer::singleShot(1000, [this]() { ui->copiedLabelMain->setVisible(false); } );
+    }
 }
 
 void MainWindow::on_openGeneratorNewBtn_clicked()
