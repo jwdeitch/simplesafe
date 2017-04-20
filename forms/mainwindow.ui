@@ -387,7 +387,7 @@ border: 1px solid #D4D5D5;</string>
     <string>login</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="copyToClipboardBtn">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -477,7 +477,7 @@ border: 1px solid gray;</string>
   <zorder>newAssetFrame</zorder>
   <zorder>lockFrame</zorder>
   <zorder>selectedLoginLabel</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>copyToClipboardBtn</zorder>
   <zorder>label</zorder>
   <zorder>retrievePassPeek</zorder>
   <zorder>viewSelectedPassword</zorder>

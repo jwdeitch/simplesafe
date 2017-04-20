@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QDialog>
+#include <QClipboard>
+#include <QTimer>
 
 class QListWidgetItem;
 namespace Ui {
@@ -26,11 +28,14 @@ private slots:
     void refreshListView();
     void on_listWidget_itemClicked(QListWidgetItem *item);
     void on_inputPassPeek_pressed();
-
+    void copyToClipboard(QString text);
+    void resetClipboardText();
     void on_inputPassPeek_released();
     void on_retrievePassPeek_pressed();
 
     void on_retrievePassPeek_released();
+
+    void on_copyToClipboardBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

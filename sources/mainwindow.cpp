@@ -101,3 +101,19 @@ void MainWindow::on_retrievePassPeek_released()
 {
     ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
 }
+
+void MainWindow::copyToClipboard(QString text) {
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setText(text);
+    QTimer::singleShot(45000, this, SLOT(resetClipboardText()));
+}
+
+void MainWindow::resetClipboardText() {
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setText("");
+}
+
+void MainWindow::on_copyToClipboardBtn_clicked()
+{
+    copyToClipboard(ui->viewSelectedPassword->text());
+}
