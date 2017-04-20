@@ -7,6 +7,7 @@ passwordgenerator::passwordgenerator(QWidget *parent) :
     ui(new Ui::passwordgenerator)
 {
     ui->setupUi(this);
+    generate();
 }
 
 void passwordgenerator::generate() {
@@ -33,7 +34,8 @@ void passwordgenerator::generate() {
     QString randomStr = randomAlpha + randomSymbols;
 
     std::random_shuffle(std::begin(randomStr), std::end(randomStr));
-    ui->PasswordBox = randomStr;
+
+    ui->PasswordBox->setText(randomStr);
 }
 
 passwordgenerator::~passwordgenerator()

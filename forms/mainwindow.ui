@@ -466,6 +466,9 @@ border: 1px solid #D4D5D5;</string>
     <string notr="true">background-color: white;
 border: 1px solid gray;</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
    <property name="readOnly">
     <bool>true</bool>
    </property>
