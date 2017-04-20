@@ -21,7 +21,8 @@ SOURCES += sources/main.cpp\
     sources/safeitem.cpp \
     sources/botanwrapper.cpp \
     sources/botan.cpp \
-    sources/lockscreen.cpp
+    sources/lockscreen.cpp \
+    sources/passwordgenerator.cpp
 
 HEADERS  += headers/mainwindow.h \
     headers/appdata.h \
@@ -30,11 +31,13 @@ HEADERS  += headers/mainwindow.h \
     headers/safeitem.h \
     headers/botan.h \
     headers/botanwrapper.h \
-    headers/lockscreen.h
+    headers/lockscreen.h \
+    headers/passwordgenerator.h
 
 FORMS    += forms/mainwindow.ui \
     forms/safeitem.ui \
-    forms/lockscreen.ui
+    forms/lockscreen.ui \
+    forms/passwordgenerator.ui
 
 RESOURCES += \
     resources.qrc

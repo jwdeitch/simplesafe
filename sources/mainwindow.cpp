@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QVector>
 #include <QDebug>
+#include "headers/passwordgenerator.h"
 
 QString masterpassword = NULL;
 QVector<QJsonObject> safeItems;
@@ -19,6 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
     ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
+
+    passwordgenerator *pw = new passwordgenerator();
+    pw->show();
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
 
