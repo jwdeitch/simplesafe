@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SImple Safe</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -31,7 +31,7 @@
      <x>0</x>
      <y>38</y>
      <width>239</width>
-     <height>381</height>
+     <height>351</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -66,9 +66,9 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QLabel" name="selectedNameLabel">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>250</x>
      <y>20</y>
-     <width>251</width>
+     <width>261</width>
      <height>16</height>
     </rect>
    </property>
@@ -83,12 +83,15 @@ QListView::item:selected { background: #D8DEE1 };</string>
    <property name="text">
     <string>Test</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>160</y>
+     <x>30</x>
+     <y>40</y>
      <width>371</width>
      <height>241</height>
     </rect>
@@ -378,10 +381,10 @@ border: 1px solid #D4D5D5;</string>
   <widget class="QLabel" name="selectedLoginLabel">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>70</y>
-     <width>251</width>
-     <height>16</height>
+     <x>320</x>
+     <y>50</y>
+     <width>191</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -392,7 +395,7 @@ border: 1px solid #D4D5D5;</string>
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>133</y>
+     <y>123</y>
      <width>41</width>
      <height>31</height>
     </rect>
@@ -418,8 +421,8 @@ border: 1px solid #D4D5D5;</string>
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>50</y>
-     <width>60</width>
+     <y>52</y>
+     <width>41</width>
      <height>16</height>
     </rect>
    </property>
@@ -431,7 +434,7 @@ border: 1px solid #D4D5D5;</string>
    <property name="geometry">
     <rect>
      <x>443</x>
-     <y>133</y>
+     <y>123</y>
      <width>31</width>
      <height>32</height>
     </rect>
@@ -456,9 +459,9 @@ border: 1px solid #D4D5D5;</string>
   <widget class="QLineEdit" name="viewSelectedPassword">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>96</y>
-     <width>251</width>
+     <x>250</x>
+     <y>88</y>
+     <width>261</width>
      <height>31</height>
     </rect>
    </property>
@@ -473,16 +476,91 @@ border: 1px solid gray;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QFrame" name="searchBackdrop_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>201</width>
-     <height>111</height>
+     <x>0</x>
+     <y>389</y>
+     <width>239</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F0F3F4;
+border: none;
+border-right: 1px solid #B8B8B8;
+border-top:1px solid #d6d6d6;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="openGeneratorBtn">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>6</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../resources.qrc">
+      <normaloff>:/images/images/random.png</normaloff>:/images/images/random.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="openSettingsBtn">
+    <property name="geometry">
+     <rect>
+      <x>38</x>
+      <y>1</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../resources.qrc">
+      <normaloff>:/images/images/settings.png</normaloff>:/images/images/settings.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
+  <zorder>viewSelectedPassword</zorder>
+  <zorder>label</zorder>
   <zorder>searchBackdrop</zorder>
   <zorder>selectedNameLabel</zorder>
   <zorder>lineEdit</zorder>
@@ -492,10 +570,8 @@ border: 1px solid gray;</string>
   <zorder>lockFrame</zorder>
   <zorder>selectedLoginLabel</zorder>
   <zorder>copyToClipboardBtn</zorder>
-  <zorder>label</zorder>
   <zorder>retrievePassPeek</zorder>
-  <zorder>viewSelectedPassword</zorder>
-  <zorder>widget</zorder>
+  <zorder>searchBackdrop_2</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

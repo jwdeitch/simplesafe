@@ -31,6 +31,7 @@ private slots:
     void copyToClipboard(QString text);
     void resetClipboardText();
     void on_inputPassPeek_released();
+    void showGenerator();
     void on_retrievePassPeek_pressed();
 
     void on_retrievePassPeek_released();

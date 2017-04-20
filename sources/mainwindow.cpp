@@ -20,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
     ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
-
-    passwordgenerator *pw = new passwordgenerator();
-    pw->show();
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
 
@@ -115,6 +112,11 @@ void MainWindow::copyToClipboard(QString text) {
 void MainWindow::resetClipboardText() {
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText("");
+}
+
+void MainWindow::showGenerator() {
+    passwordgenerator *pw = new passwordgenerator();
+    pw->show();
 }
 
 void MainWindow::on_copyToClipboardBtn_clicked()
