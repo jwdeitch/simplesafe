@@ -16,7 +16,7 @@ class passwordgenerator : public QWidget
 
 public:
     explicit passwordgenerator(QWidget *parent = 0);
-    void generate();
+    QString generate();
     ~passwordgenerator();
 
 private slots:

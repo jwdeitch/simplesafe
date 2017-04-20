@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "headers/mainwindow.h"
 #include <QApplication>
-#include "lockscreen.h"
-#include "appdata.h"
+#include "headers/lockscreen.h"
+#include "headers/appdata.h"
 
 int main(int argc, char *argv[])
 {

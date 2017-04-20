@@ -127,7 +127,9 @@ void MainWindow::on_copyToClipboardBtn_clicked()
 void MainWindow::on_openGeneratorNewBtn_clicked()
 {
     passwordgenerator *pw = new passwordgenerator();
-    pw->show();
+    ui->newpasswordtxt->setText(pw->generate());
+    ui->newpasswordtxt->setEchoMode(QLineEdit::Normal);
+    QTimer::singleShot(1000, [this]() { ui->newpasswordtxt->setEchoMode(QLineEdit::Password); } );
 }
 
 void MainWindow::on_closeNewPwPanel_clicked()

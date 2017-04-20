@@ -12,8 +12,7 @@ passwordgenerator::passwordgenerator(QWidget *parent) :
     generate();
 }
 
-void passwordgenerator::generate() {
-    ui->PasswordBox->clear();
+QString passwordgenerator::generate() {
     const QString possibleCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
     const QString possibleSymbols("!@#$%^&*()_+/][{}><,.|");
 
@@ -37,10 +36,8 @@ void passwordgenerator::generate() {
     QString randomStr = randomAlpha + randomSymbols;
 
     std::random_shuffle(std::begin(randomStr), std::end(randomStr));
-    qDebug() << randomStr << " |||| " << randomStr.size();
-    ui->PasswordBox->insertHtml("<br>");
-    ui->PasswordBox->insertPlainText(randomStr);
-    ui->PasswordBox->setAlignment(Qt::AlignCenter);
+
+    return randomStr;
 }
 
 passwordgenerator::~passwordgenerator()
@@ -50,7 +47,13 @@ passwordgenerator::~passwordgenerator()
 
 void passwordgenerator::on_refreshBtn_clicked()
 {
-    generate();
+    ui->PasswordBox->clear();
+
+    QString randomStr = generate();
+
+    ui->PasswordBox->insertHtml("<br>");
+    ui->PasswordBox->insertPlainText(randomStr);
+    ui->PasswordBox->setAlignment(Qt::AlignCenter);
 }
 
 void passwordgenerator::on_CopyBtn_clicked()
