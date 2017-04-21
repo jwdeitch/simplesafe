@@ -40,6 +40,8 @@ private slots:
 
     void on_fileSelectBtn_clicked();
 
+    void on_passwordSelectBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
