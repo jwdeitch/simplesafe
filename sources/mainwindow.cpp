@@ -173,3 +173,8 @@ void MainWindow::on_passwordSelectBtn_clicked()
     ui->passwordSelectBtn->move(ui->passwordSelectBtn->x(), ui->passwordSelectBtn->y()+1);
     ui->fileSelectBtn->move(ui->fileSelectBtn->x(), ui->fileSelectBtn->y()-1);
 }
+
+void MainWindow::on_fileListWidget_clicked(const QModelIndex &index)
+{
+    qDebug() << "efwef";
+}

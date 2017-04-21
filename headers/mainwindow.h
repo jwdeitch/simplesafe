@@ -42,6 +42,8 @@ private slots:
 
     void on_passwordSelectBtn_clicked();
 
+    void on_fileListWidget_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
 };
