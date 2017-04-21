@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(QSize(238, 419));
+    ui->listWidget->installEventFilter(this);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
@@ -136,3 +137,20 @@ void MainWindow::on_searchField_textChanged(const QString &arg1)
 {
 
 }
+
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+           qDebug() << "key " << keyEvent->key() << "from" << obj;
+    }
+    return QObject::eventFilter(obj, event);
+}
+
+//void MainWindow::keyPressEvent(QKeyEvent *event) {
+//    qDebug() << event->key();
+//    if (event->key() == Qt::EnterKeyReturn) {
+//        qDebug() << "efwwef";
+//    }
+//}

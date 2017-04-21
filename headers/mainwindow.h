@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QClipboard>
 #include <QTimer>
+#include <QKeyEvent>
 
 class QListWidgetItem;
 namespace Ui {
@@ -20,6 +21,9 @@ public:
     bool isLocked();
     void copyToClipboard(QString text);
     ~MainWindow();
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private slots:
     void on_newAssetBtn_clicked();
