@@ -425,7 +425,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true">background-color:none;</string>
     </property>
     <property name="text">
-     <string>numbers / letters</string>
+     <string>Numbers / Letters</string>
     </property>
     <property name="wordWrap">
      <bool>true</bool>
@@ -535,10 +535,30 @@ border: 1px solid #D4D5D5;</string>
   <zorder>listWidget</zorder>
   <zorder>searchBackdrop_2</zorder>
   <zorder>newAssetFrame</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>generatePasswordPanel</zorder>
+  <zorder>lockFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>masterPassword</tabstop>
+  <tabstop>searchField</tabstop>
+  <tabstop>newAssetBtn</tabstop>
+  <tabstop>openGeneratorBtn</tabstop>
+  <tabstop>openSettingsBtn</tabstop>
+  <tabstop>openGeneratorNewBtn</tabstop>
+  <tabstop>closeNewPwPanel</tabstop>
+  <tabstop>newpasswordtxt</tabstop>
+  <tabstop>inputPassPeek</tabstop>
+  <tabstop>createNewLoginBtn</tabstop>
+  <tabstop>newlogintxt</tabstop>
+  <tabstop>newlogintitletxt</tabstop>
+  <tabstop>refreshBtn</tabstop>
+  <tabstop>PasswordBox</tabstop>
+  <tabstop>alphaNumSpin</tabstop>
+  <tabstop>CopyBtn</tabstop>
+  <tabstop>SymbolSpin</tabstop>
+  <tabstop>listWidget</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>
