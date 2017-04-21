@@ -8,6 +8,7 @@
 #include <QJsonValue>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QDateTime>
 
 namespace constants {
     const QString SALT = "A2{479-?Wyz?HQaM8>";
@@ -27,9 +28,6 @@ public:
     bool checkMasterPassword(QString password);
     QJsonObject retrievePasswordContents(QString path);
     BotanWrapper botan;
-
-private:
-    QString random_string( int length );
 };
 
 #endif // APPDATA_H

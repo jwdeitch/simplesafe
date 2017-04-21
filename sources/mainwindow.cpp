@@ -17,11 +17,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(QSize(535, 419));
+//    this->setFixedSize(QSize(239, 419));
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
     ui->copiedLabelMain->setVisible(false);
-    ui->filePane->setVisible(false);
     ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
@@ -67,7 +67,17 @@ void MainWindow::on_createNewLoginBtn_clicked()
 {
     appData *ap = new appData(masterpassword);
     ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
-    refreshListView();
+    QListWidgetItem *item = new QListWidgetItem;
+    item->setSizeHint(QSize(100, 30));
+    ui->listWidget->addItem(item);
+    safeitem *safeListItem = new safeitem;
+    safeListItem->setLabel(ui->newlogintitletxt->text());
+    safeListItem->setPassword(ui->newpasswordtxt->text());
+    safeListItem->setLogin(ui->newlogintxt->text());
+    ui->newlogintitletxt->setText("");
+    ui->newpasswordtxt->setText("");
+    ui->newlogintxt->setText("");
+    ui->listWidget->setItemWidget(item, safeListItem);
     ui->newAssetFrame->setVisible(false);
 }
 
@@ -146,35 +156,8 @@ void MainWindow::on_closeNewPwPanel_clicked()
     ui->newAssetFrame->setVisible(false);
 }
 
-void MainWindow::on_fileSelectBtn_clicked()
+void MainWindow::on_openGeneratorBtn_clicked()
 {
-    ui->filePane->setVisible(true);
-
-    ui->fileSelectBtn->setStyleSheet(
-                "background-color: white;border-top: 1px solid gray;border-left: 1px solid gray;border-right: 1px solid gray;border-bottom:none;"
-                );
-    ui->passwordSelectBtn->setStyleSheet(
-                "background-color: #ECEFF1;border-top: 1px solid gray;border-left: 1px solid gray;border-right: 1px solid gray;"
-                );
-    ui->fileSelectBtn->move(ui->fileSelectBtn->x(), ui->fileSelectBtn->y()+1);
-    ui->passwordSelectBtn->move(ui->passwordSelectBtn->x(), ui->passwordSelectBtn->y()-1);
-}
-
-void MainWindow::on_passwordSelectBtn_clicked()
-{
-    ui->filePane->setVisible(false);
-
-    ui->fileSelectBtn->setStyleSheet(
-                "background-color: #ECEFF1;border-top: 1px solid gray;border-left: 1px solid gray;border-right: 1px solid gray;"
-                );
-    ui->passwordSelectBtn->setStyleSheet(
-                "background-color: white;border-top: 1px solid gray;border-left: 1px solid gray;border-right: 1px solid gray;border-bottom:none;"
-                );
-    ui->passwordSelectBtn->move(ui->passwordSelectBtn->x(), ui->passwordSelectBtn->y()+1);
-    ui->fileSelectBtn->move(ui->fileSelectBtn->x(), ui->fileSelectBtn->y()-1);
-}
-
-void MainWindow::on_fileListWidget_clicked(const QModelIndex &index)
-{
-    qDebug() << "efwef";
+    passwordgenerator *pwg = new passwordgenerator();
+    pwg->show();
 }

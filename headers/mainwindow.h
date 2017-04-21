@@ -35,14 +35,8 @@ private slots:
     void on_retrievePassPeek_released();
     void on_copyToClipboardBtn_clicked();
     void on_openGeneratorNewBtn_clicked();
-
     void on_closeNewPwPanel_clicked();
-
-    void on_fileSelectBtn_clicked();
-
-    void on_passwordSelectBtn_clicked();
-
-    void on_fileListWidget_clicked(const QModelIndex &index);
+    void on_openGeneratorBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

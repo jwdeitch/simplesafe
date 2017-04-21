@@ -17,7 +17,7 @@ void appData::insertNewPassword(QString label, QString login, QString password) 
     });
     QJsonDocument doc(data1);
     QString strJson(doc.toJson(QJsonDocument::Compact));
-    fs::writeFile(appData::resourcesDirLocation() + random_string(10) + ".p", botan.Encrypt(strJson));
+    fs::writeFile(appData::resourcesDirLocation() + QDateTime::currentMSecsSinceEpoch()*1000 + ".p", botan.Encrypt(strJson));
 }
 
 QJsonObject appData::retrievePasswordContents(QString path) {
@@ -48,22 +48,3 @@ bool appData::checkMasterPassword(QString password) {
     return false;
 
 }
-
-// http://stackoverflow.com/a/12468109
-QString appData::random_string( int length )
-{
-    auto randchar = []() -> char
-    {
-        const char charset[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-        const size_t max_index = (sizeof(charset) - 1);
-        return charset[ rand() % max_index ];
-    };
-    QString str(length,0);
-    std::generate_n( str.begin(), length, randchar );
-    return str;
-}
-
-//QString
