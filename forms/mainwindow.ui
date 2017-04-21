@@ -46,11 +46,13 @@
    <property name="styleSheet">
     <string notr="true">background-color: #F0F3F4;
 border: none;
-border-right: 1px solid #B8B8B8;
-QListView::item:selected { background: #D8DEE1 };</string>
+border-right: 1px solid #B8B8B8;</string>
    </property>
    <property name="resizeMode">
     <enum>QListView::Adjust</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
@@ -90,7 +92,7 @@ QListView::item:selected { background: #D8DEE1 };</string>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>40</y>
      <width>371</width>
      <height>241</height>
@@ -354,46 +356,6 @@ border-right: 1px solid #B8B8B8;</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QFrame" name="lockFrame">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>230</y>
-     <width>241</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: gray;
-border: none;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLineEdit" name="masterPassword">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>181</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#F5F5F5;
-border: 1px solid #D4D5D5;</string>
-    </property>
-   </widget>
-   <zorder>masterPassword</zorder>
-   <zorder>newAssetFrame</zorder>
-   <zorder>widget</zorder>
-  </widget>
   <widget class="QLabel" name="selectedLoginLabel">
    <property name="geometry">
     <rect>
@@ -594,20 +556,60 @@ border-top:1px solid #d6d6d6;</string>
     <string>Copied!</string>
    </property>
   </widget>
+  <widget class="QFrame" name="lockFrame">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>350</y>
+     <width>241</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: gray;
+border: none;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLineEdit" name="masterPassword">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#F5F5F5;
+border: 1px solid #D4D5D5;</string>
+    </property>
+   </widget>
+   <zorder>masterPassword</zorder>
+   <zorder>newAssetFrame</zorder>
+   <zorder>widget</zorder>
+  </widget>
   <zorder>viewSelectedPassword</zorder>
+  <zorder>selectedNameLabel</zorder>
+  <zorder>copiedLabelMain</zorder>
+  <zorder>retrievePassPeek</zorder>
+  <zorder>selectedLoginLabel</zorder>
+  <zorder>copyToClipboardBtn</zorder>
   <zorder>label</zorder>
   <zorder>searchBackdrop</zorder>
-  <zorder>selectedNameLabel</zorder>
   <zorder>lineEdit</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
   <zorder>newAssetFrame</zorder>
-  <zorder>lockFrame</zorder>
-  <zorder>selectedLoginLabel</zorder>
-  <zorder>copyToClipboardBtn</zorder>
-  <zorder>retrievePassPeek</zorder>
   <zorder>searchBackdrop_2</zorder>
-  <zorder>copiedLabelMain</zorder>
+  <zorder>lockFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

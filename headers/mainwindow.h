@@ -38,6 +38,8 @@ private slots:
 
     void on_closeNewPwPanel_clicked();
 
+    void on_fileSelectBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

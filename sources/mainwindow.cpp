@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(QSize(535, 419));
+    setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
     ui->copiedLabelMain->setVisible(false);
@@ -65,6 +67,7 @@ void MainWindow::on_createNewLoginBtn_clicked()
     appData *ap = new appData(masterpassword);
     ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
     refreshListView();
+    ui->newAssetFrame->setVisible(false);
 }
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
@@ -140,4 +143,9 @@ void MainWindow::on_openGeneratorNewBtn_clicked()
 void MainWindow::on_closeNewPwPanel_clicked()
 {
     ui->newAssetFrame->setVisible(false);
+}
+
+void MainWindow::on_fileSelectBtn_clicked()
+{
+
 }

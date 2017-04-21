@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>204</width>
+    <width>240</width>
     <height>33</height>
    </rect>
   </property>
@@ -32,24 +32,31 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="typeLabel">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>170</x>
      <y>5</y>
-     <width>67</width>
+     <width>61</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">border:none;
-background-color: rgba(0,0,0,0%);
+background-color: none;
+border-radius: 3;
 border: 1px solid #6F7274;
-border-radius: 7;
 color: #6F7274;
+padding:0px;
+margin:0px;
 </string>
    </property>
    <property name="text">

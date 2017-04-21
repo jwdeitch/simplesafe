@@ -6,6 +6,7 @@ safeitem::safeitem(QWidget *parent) :
     ui(new Ui::safeitem)
 {
     ui->setupUi(this);
+    ui->typeLabel->fontMetrics().width(ui->typeLabel->text());
 }
 
 void safeitem::setLabel(QString text) {
