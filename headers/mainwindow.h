@@ -25,6 +25,7 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void keyPressEvent(QKeyEvent *event);
+    QString generate();
 
 private slots:
     void on_newAssetBtn_clicked();
@@ -38,6 +39,8 @@ private slots:
     void on_openGeneratorNewBtn_clicked();
     void on_closeNewPwPanel_clicked();
     void on_openGeneratorBtn_clicked();
+    void on_refreshBtn_clicked();
+    void on_CopyBtn_clicked();
 
     void on_searchField_textChanged(const QString &arg1);
 

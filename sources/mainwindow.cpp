@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(QSize(238, 419));
     ui->listWidget->installEventFilter(this);
+    ui->generatePasswordPanel->setVisible(false);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
@@ -129,8 +130,7 @@ void MainWindow::on_closeNewPwPanel_clicked()
 
 void MainWindow::on_openGeneratorBtn_clicked()
 {
-    passwordgenerator *pwg = new passwordgenerator();
-    pwg->show();
+    ui->generatePasswordPanel->setVisible(true);
 }
 
 void MainWindow::on_searchField_textChanged(const QString &arg1)
@@ -140,8 +140,7 @@ void MainWindow::on_searchField_textChanged(const QString &arg1)
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::KeyPress)
-    {
+    if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         qDebug() << "key " << keyEvent->key() << "from" << obj;
         if ((keyEvent->key()==Qt::Key_Enter) || (keyEvent->key()==Qt::Key_Return)) {
@@ -149,14 +148,65 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             copyToClipboard(si->getPassword());
             si->flashCopiedLabel();
         }
-
     }
     return QObject::eventFilter(obj, event);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
-    qDebug() << event->key();
-//    if (event->key() == Qt::EnterKeyReturn) {
-//        qDebug() << "efwwef";
-//    }
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Escape) {
+            ui->newAssetFrame->setVisible(false);
+            ui->generatePasswordPanel->setVisible(false);
+        }
+        if (keyEvent->matches(QKeySequence::New)) {
+            ui->newAssetFrame->setVisible(true);
+            ui->generatePasswordPanel->setVisible(false);
+        }
+    }
+}
+
+
+QString MainWindow::generate() {
+    const QString possibleCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+    const QString possibleSymbols("!@#$%^&*()_+/][{}><,.|");
+
+    int randAlphaLength = ui->alphaNumSpin->value();
+    int randSymbolLength = ui->SymbolSpin->value();
+
+    QString randomAlpha;
+    for (int i = 0; i < randAlphaLength; ++i) {
+        int index = qrand() % possibleCharacters.length();
+        QChar nextChar = possibleCharacters.at(index);
+        randomAlpha.append(nextChar);
+    }
+
+    QString randomSymbols;
+    for (int i = 0; i < randSymbolLength; ++i) {
+        int index = qrand() % possibleSymbols.length();
+        QChar nextChar = possibleSymbols.at(index);
+        randomSymbols.append(nextChar);
+    }
+
+    QString randomStr = randomAlpha + randomSymbols;
+
+    std::random_shuffle(std::begin(randomStr), std::end(randomStr));
+
+    return randomStr;
+}
+
+void MainWindow::on_refreshBtn_clicked()
+{
+    ui->PasswordBox->clear();
+
+    QString randomStr = generate();
+
+    ui->PasswordBox->insertHtml("<br>");
+    ui->PasswordBox->insertPlainText(randomStr);
+    ui->PasswordBox->setAlignment(Qt::AlignCenter);
+}
+
+void MainWindow::on_CopyBtn_clicked()
+{
+    copyToClipboard(ui->PasswordBox->toPlainText().simplified());
 }

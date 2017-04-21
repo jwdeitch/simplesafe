@@ -221,7 +221,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>207</x>
-      <y>178</y>
+      <y>118</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -247,7 +247,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>210</y>
+      <y>150</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -263,7 +263,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>6</x>
-      <y>170</y>
+      <y>110</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -281,7 +281,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>180</y>
+      <y>120</y>
       <width>21</width>
       <height>16</height>
      </rect>
@@ -307,7 +307,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>210</y>
+      <y>150</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -329,7 +329,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>6</x>
-      <y>120</y>
+      <y>60</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -342,7 +342,7 @@ border-top:1px solid #d6d6d6;</string>
     <property name="geometry">
      <rect>
       <x>6</x>
-      <y>70</y>
+      <y>10</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -351,46 +351,183 @@ border-top:1px solid #d6d6d6;</string>
      <string>Label</string>
     </property>
    </widget>
-   <widget class="QFrame" name="lockFrame">
+  </widget>
+  <widget class="QFrame" name="generatePasswordPanel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>38</y>
+     <width>239</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#generatePasswordPanel{	background-color: #F0F3F4;
+	border: none;
+	border-right: 1px solid #B8B8B8;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="refreshBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Refresh</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="PasswordBox">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>10</y>
+      <width>228</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+      <pointsize>17</pointsize>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Courier New'; font-size:17pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.SF NS Text'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>83</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:none;</string>
+    </property>
+    <property name="text">
+     <string>numbers / letters</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="alphaNumSpin">
+    <property name="geometry">
+     <rect>
+      <x>184</x>
+      <y>82</y>
+      <width>48</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CopyBtn">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>140</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Copy</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:none;</string>
+    </property>
+    <property name="text">
+     <string>Symbols</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="SymbolSpin">
+    <property name="geometry">
+     <rect>
+      <x>184</x>
+      <y>107</y>
+      <width>48</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>10</number>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="lockFrame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>287</y>
+     <width>201</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: gray;
+border: none;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLineEdit" name="masterPassword">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>280</y>
-      <width>201</width>
-      <height>61</height>
+      <y>20</y>
+      <width>151</width>
+      <height>21</height>
      </rect>
     </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: gray;
-border: none;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLineEdit" name="masterPassword">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>151</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:#F5F5F5;
+     <string notr="true">background-color:#F5F5F5;
 border: 1px solid #D4D5D5;</string>
-     </property>
-    </widget>
-    <zorder>masterPassword</zorder>
-    <zorder>fileListWidget</zorder>
-    <zorder>filePane</zorder>
+    </property>
    </widget>
+   <zorder>masterPassword</zorder>
+   <zorder>fileListWidget</zorder>
+   <zorder>filePane</zorder>
+   <zorder>generatePasswordPanel</zorder>
+   <zorder>generatePasswordPanel</zorder>
   </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>searchField</zorder>
@@ -398,6 +535,8 @@ border: 1px solid #D4D5D5;</string>
   <zorder>listWidget</zorder>
   <zorder>searchBackdrop_2</zorder>
   <zorder>newAssetFrame</zorder>
+  <zorder>lockFrame</zorder>
+  <zorder>generatePasswordPanel</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
