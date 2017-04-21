@@ -24,6 +24,7 @@ public:
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_newAssetBtn_clicked();

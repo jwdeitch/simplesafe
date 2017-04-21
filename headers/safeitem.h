@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QString>
 #include <QJsonObject>
+#include <QTimer>
 
 namespace Ui {
 class safeitem;
@@ -19,6 +20,7 @@ public:
     void setLogin(QString text);
     void setPassword(QString text);
     void is_password(bool password);
+    void flashCopiedLabel();
     void setProperties(QJsonObject jsonObj);
     QString getLabel();
     QString getLogin();

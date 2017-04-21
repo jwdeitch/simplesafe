@@ -6,6 +6,7 @@ safeitem::safeitem(QWidget *parent) :
     ui(new Ui::safeitem)
 {
     ui->setupUi(this);
+    ui->copiedLabelMain->setVisible(false);
     ui->typeLabel->fontMetrics().width(ui->typeLabel->text());
 }
 
@@ -22,6 +23,11 @@ void safeitem::setProperties(QJsonObject jsonObj) {
 
 QString safeitem::getLabel() {
     return label;
+}
+
+void safeitem::flashCopiedLabel() {
+    ui->copiedLabelMain->setVisible(true);
+    QTimer::singleShot(1000, [this]() { ui->copiedLabelMain->setVisible(false); } );
 }
 
 QString safeitem::getLogin() {

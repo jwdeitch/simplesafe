@@ -143,14 +143,20 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     if (event->type() == QEvent::KeyPress)
     {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-           qDebug() << "key " << keyEvent->key() << "from" << obj;
+        qDebug() << "key " << keyEvent->key() << "from" << obj;
+        if ((keyEvent->key()==Qt::Key_Enter) || (keyEvent->key()==Qt::Key_Return)) {
+            safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->currentItem()));
+            copyToClipboard(si->getPassword());
+            si->flashCopiedLabel();
+        }
+
     }
     return QObject::eventFilter(obj, event);
 }
 
-//void MainWindow::keyPressEvent(QKeyEvent *event) {
-//    qDebug() << event->key();
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    qDebug() << event->key();
 //    if (event->key() == Qt::EnterKeyReturn) {
 //        qDebug() << "efwwef";
 //    }
-//}
+}
