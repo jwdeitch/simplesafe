@@ -9,20 +9,17 @@
 #include "headers/passwordgenerator.h"
 
 QString masterpassword = NULL;
-QVector<QJsonObject> safeItems;
+QVector<QString> safeItems;
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(QSize(535, 419));
-//    this->setFixedSize(QSize(239, 419));
+    this->setFixedSize(QSize(238, 419));
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
-    ui->copiedLabelMain->setVisible(false);
-    ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
@@ -81,14 +78,6 @@ void MainWindow::on_createNewLoginBtn_clicked()
     ui->newAssetFrame->setVisible(false);
 }
 
-void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
-{
-    safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(item) );
-    ui->selectedNameLabel->setText(si->getLabel());
-    ui->selectedLoginLabel->setText(si->getLogin());
-    ui->viewSelectedPassword->setText(si->getPassword());
-}
-
 void MainWindow::setMasterPassword(QString password) {
     masterpassword = password;
     ui->lockFrame->setVisible(false);
@@ -108,16 +97,6 @@ void MainWindow::on_inputPassPeek_released()
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
 }
 
-void MainWindow::on_retrievePassPeek_pressed()
-{
-    ui->viewSelectedPassword->setEchoMode(QLineEdit::Normal);
-}
-
-void MainWindow::on_retrievePassPeek_released()
-{
-    ui->viewSelectedPassword->setEchoMode(QLineEdit::Password);
-}
-
 void MainWindow::copyToClipboard(QString text) {
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(text);
@@ -132,15 +111,6 @@ void MainWindow::resetClipboardText() {
 void MainWindow::showGenerator() {
     passwordgenerator *pw = new passwordgenerator();
     pw->show();
-}
-
-void MainWindow::on_copyToClipboardBtn_clicked()
-{
-    if (ui->viewSelectedPassword->text().size() > 0) {
-        copyToClipboard(ui->viewSelectedPassword->text());
-        ui->copiedLabelMain->setVisible(true);
-        QTimer::singleShot(1000, [this]() { ui->copiedLabelMain->setVisible(false); } );
-    }
 }
 
 void MainWindow::on_openGeneratorNewBtn_clicked()
@@ -160,4 +130,9 @@ void MainWindow::on_openGeneratorBtn_clicked()
 {
     passwordgenerator *pwg = new passwordgenerator();
     pwg->show();
+}
+
+void MainWindow::on_searchField_textChanged(const QString &arg1)
+{
+
 }

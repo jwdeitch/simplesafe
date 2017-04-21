@@ -26,17 +26,15 @@ private slots:
     void on_masterPassword_returnPressed();
     void on_createNewLoginBtn_clicked();
     void refreshListView();
-    void on_listWidget_itemClicked(QListWidgetItem *item);
     void on_inputPassPeek_pressed();
     void resetClipboardText();
     void on_inputPassPeek_released();
     void showGenerator();
-    void on_retrievePassPeek_pressed();
-    void on_retrievePassPeek_released();
-    void on_copyToClipboardBtn_clicked();
     void on_openGeneratorNewBtn_clicked();
     void on_closeNewPwPanel_clicked();
     void on_openGeneratorBtn_clicked();
+
+    void on_searchField_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>547</width>
+    <width>238</width>
     <height>419</height>
    </rect>
   </property>
@@ -55,7 +55,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="searchField">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -63,30 +63,6 @@
      <width>181</width>
      <height>21</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="selectedNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>20</y>
-     <width>261</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>19</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-     <stylestrategy>PreferAntialias</stylestrategy>
-    </font>
-   </property>
-   <property name="text">
-    <string>Test</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="newAssetBtn">
@@ -135,104 +111,6 @@ border-right: 1px solid #B8B8B8;</string>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="selectedLoginLabel">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>50</y>
-     <width>191</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>login</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="copyToClipboardBtn">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>123</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="../resources.qrc">
-     <normaloff>:/images/images/copy.png</normaloff>:/images/images/copy.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>32</width>
-     <height>32</height>
-    </size>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>52</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Login:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="retrievePassPeek">
-   <property name="geometry">
-    <rect>
-     <x>443</x>
-     <y>123</y>
-     <width>31</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="../resources.qrc">
-     <normaloff>:/images/images/eye.png</normaloff>:/images/images/eye.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>30</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="viewSelectedPassword">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>88</y>
-     <width>261</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: white;
-border: 1px solid gray;</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QFrame" name="searchBackdrop_2">
@@ -317,65 +195,6 @@ border-top:1px solid #d6d6d6;</string>
      <bool>true</bool>
     </property>
    </widget>
-  </widget>
-  <widget class="QLabel" name="copiedLabelMain">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>154</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: none; color:green;background-color: none;</string>
-   </property>
-   <property name="text">
-    <string>Copied!</string>
-   </property>
-  </widget>
-  <widget class="QFrame" name="lockFrame">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>340</y>
-     <width>241</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: gray;
-border: none;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLineEdit" name="masterPassword">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>181</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#F5F5F5;
-border: 1px solid #D4D5D5;</string>
-    </property>
-   </widget>
-   <zorder>masterPassword</zorder>
-   <zorder>fileListWidget</zorder>
-   <zorder>filePane</zorder>
   </widget>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
@@ -532,20 +351,52 @@ border: 1px solid #D4D5D5;</string>
      <string>Label</string>
     </property>
    </widget>
+   <widget class="QFrame" name="lockFrame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: gray;
+border: none;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="masterPassword">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#F5F5F5;
+border: 1px solid #D4D5D5;</string>
+     </property>
+    </widget>
+    <zorder>masterPassword</zorder>
+    <zorder>fileListWidget</zorder>
+    <zorder>filePane</zorder>
+   </widget>
   </widget>
-  <zorder>viewSelectedPassword</zorder>
-  <zorder>selectedNameLabel</zorder>
-  <zorder>copiedLabelMain</zorder>
-  <zorder>retrievePassPeek</zorder>
-  <zorder>selectedLoginLabel</zorder>
-  <zorder>copyToClipboardBtn</zorder>
-  <zorder>label</zorder>
   <zorder>searchBackdrop</zorder>
-  <zorder>lineEdit</zorder>
+  <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
   <zorder>searchBackdrop_2</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>newAssetFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
