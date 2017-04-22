@@ -82,9 +82,16 @@ QListWidget::item:selected { background-color: #D8DEE1; }</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: none;
-background-color:#F0F3F4;
-font: 75 18pt &quot;Times New Roman&quot;;</string>
+    <string notr="true">QPushButton#newAssetBtn {
+	border: none;
+	background-color:#F0F3F4;
+	color: grey;
+	font: 75 18pt &quot;Times New Roman&quot;;
+}
+
+QPushButton:hover#newAssetBtn {
+	color: black;
+}</string>
    </property>
    <property name="text">
     <string>+</string>
