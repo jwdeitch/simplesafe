@@ -135,7 +135,18 @@ void MainWindow::on_openGeneratorBtn_clicked()
 
 void MainWindow::on_searchField_textChanged(const QString &arg1)
 {
-
+    if (ui->searchField->text().size() > 0) {
+        for(int i = 0; i < ui->listWidget->count(); ++i) {
+            safeitem *si = qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->item(i)) );
+            if (! si->getLabel().contains(arg1) | si->getLogin().contains(arg1)) {
+                ui->listWidget->setRowHidden(i,true);
+            }
+        }
+    } else {
+        for(int i = 0; i < ui->listWidget->count(); ++i) {
+            ui->listWidget->setRowHidden(i,false);
+        }
+    }
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
