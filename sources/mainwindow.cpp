@@ -165,12 +165,18 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     if (obj == ui->listWidget){
         if (event->type() == QEvent::KeyPress) {
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-            qDebug() << "key " << keyEvent->key() << "from" << obj;
             if ((keyEvent->key()==Qt::Key_Enter) || (keyEvent->key()==Qt::Key_Return)) {
                 safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->currentItem()));
                 copyToClipboard(si->getPassword());
                 si->flashCopiedLabel();
                 return QObject::eventFilter(obj, event);
+            }
+
+            if (keyEvent->key() == Qt::Key_Up) {
+                if (ui->listWidget->item(0)->isSelected()) {
+                    ui->listWidget->item(0)->setSelected(false);
+                    ui->searchField->setFocus();
+                }
             }
 
             if (keyEvent->key() < Qt::Key_multiply & keyEvent->key() > Qt::Key_Any) {
@@ -266,7 +272,6 @@ void MainWindow::on_newlogintitletxt_textChanged(const QString &arg1)
 
 void MainWindow::on_newpasswordtxt_textChanged(const QString &arg1)
 {
-    qDebug() << "wefwef" << arg1.isEmpty() << arg1;
     if (arg1.isEmpty()) {
         ui->newpasswordtxt->setStyleSheet(
                     "background-color:#FEFDFC; border: 1px solid #E64B5F"
