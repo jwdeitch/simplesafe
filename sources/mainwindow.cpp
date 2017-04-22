@@ -50,7 +50,9 @@ void MainWindow::refreshListView() {
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
         safeitem *safeListItem = new safeitem;
-        safeListItem->setFilename(dirContents[i]);
+        QString fname = dirContents[i];
+        fname.chop(4);
+        safeListItem->setFilename(fname);
         safeListItem->setProperties(safelet);
         ui->listWidget->setItemWidget(item, safeListItem);
     }
@@ -71,10 +73,10 @@ void MainWindow::on_createNewLoginBtn_clicked()
     appData *ap = new appData(masterpassword);
     if (inEditMode) {
         safeitem *si = qobject_cast<safeitem *>( ui->listWidget->itemWidget( ui->listWidget->currentItem() ) );
-        ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text(), si->getFilename());
         si->setLabel(ui->newlogintitletxt->text());
         si->setPassword(ui->newpasswordtxt->text());
         si->setLogin(ui->newlogintxt->text());
+        ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text(), si->getFilename());
     } else {
         QString filename = ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
         QListWidgetItem *item = new QListWidgetItem;
@@ -312,10 +314,10 @@ void MainWindow::on_newpasswordtxt_textChanged(const QString &arg1)
 
 void MainWindow::openEditMode(safeitem *si) {
     inEditMode = true;
-    ui->newAssetFrame->setVisible(true);
     ui->newlogintitletxt->setText(si->getLabel());
     ui->newlogintxt->setText(si->getLogin());
     ui->newpasswordtxt->setText(si->getPassword());
+    ui->newAssetFrame->setVisible(true);
     ui->newlogintitletxt->setFocus();
     ui->createNewLoginBtn->setText("Update");
     ui->generatePasswordPanel->setVisible(false);
@@ -334,6 +336,7 @@ void MainWindow::closeEditMode() {
                 "background-color:#FEFDFC; border: 1px solid #D8D9D9"
                 );
     ui->createNewLoginBtn->setDisabled(true);
+    ui->listWidget->setFocus();
 }
 
 void MainWindow::on_newpasswordtxt_returnPressed()

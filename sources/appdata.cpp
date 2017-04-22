@@ -17,10 +17,13 @@ QString appData::insertNewPassword(QString label, QString login, QString passwor
     });
     QJsonDocument doc(data1);
     QString strJson(doc.toJson(QJsonDocument::Compact));
+    QString fileString;
     if (filename.isNull()) {
-        QString filename = QString::number((QDateTime::currentMSecsSinceEpoch()/1000)) + ".p";
+        fileString = QString::number((QDateTime::currentMSecsSinceEpoch()/1000)) + ".p";
+    } else {
+        fileString = filename;
     }
-    fs::writeFile(appData::resourcesDirLocation() + filename, botan.Encrypt(strJson));
+    fs::writeFile(appData::resourcesDirLocation() + fileString, botan.Encrypt(strJson));
     return filename;
 }
 
