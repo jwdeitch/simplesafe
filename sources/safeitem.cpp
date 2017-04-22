@@ -11,7 +11,7 @@ safeitem::safeitem(QWidget *parent) :
 }
 
 void safeitem::setLabel(QString text) {
-    ui->label->setText(text);
+    ui->TitleLabel->setText(text);
 }
 
 void safeitem::setProperties(QJsonObject jsonObj) {
@@ -39,6 +39,7 @@ QString safeitem::getPassword() {
 }
 
 void safeitem::setLogin(QString text) {
+//    ui->loginLabel->setText(text);
     login = text;
 }
 

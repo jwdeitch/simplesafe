@@ -7,20 +7,27 @@
     <x>0</x>
     <y>0</y>
     <width>240</width>
-    <height>33</height>
+    <height>30</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="TitleLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>2</x>
      <y>7</y>
-     <width>71</width>
+     <width>169</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -37,7 +44,7 @@
     <rect>
      <x>170</x>
      <y>5</y>
-     <width>61</width>
+     <width>59</width>
      <height>21</height>
     </rect>
    </property>
@@ -66,8 +73,8 @@ margin:0px;
   <widget class="QLabel" name="copiedLabelMain">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>7</y>
+     <x>115</x>
+     <y>8</y>
      <width>51</width>
      <height>16</height>
     </rect>

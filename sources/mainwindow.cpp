@@ -31,6 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_newAssetBtn_clicked()
 {
     ui->newAssetFrame->setVisible(true);
+    ui->newlogintitletxt->setFocus();
 }
 
 void MainWindow::refreshListView() {
@@ -127,6 +128,9 @@ void MainWindow::on_closeNewPwPanel_clicked()
 
 void MainWindow::on_openGeneratorBtn_clicked()
 {
+    if (!ui->generatePasswordPanel->isVisible()) {
+        ui->refreshBtn->click();
+    }
     ui->generatePasswordPanel->setVisible(true);
 }
 
@@ -186,9 +190,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         if (keyEvent->key() == Qt::Key_Escape) {
             ui->newAssetFrame->setVisible(false);
             ui->generatePasswordPanel->setVisible(false);
+            ui->searchField->setFocus();
         }
         if (keyEvent->matches(QKeySequence::New)) {
             ui->newAssetFrame->setVisible(true);
+            ui->newlogintitletxt->setFocus();
             ui->generatePasswordPanel->setVisible(false);
         }
     }

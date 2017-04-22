@@ -551,16 +551,16 @@ border: 1px solid #D4D5D5;</string>
  <tabstops>
   <tabstop>masterPassword</tabstop>
   <tabstop>searchField</tabstop>
-  <tabstop>newAssetBtn</tabstop>
-  <tabstop>openGeneratorBtn</tabstop>
-  <tabstop>openSettingsBtn</tabstop>
-  <tabstop>openGeneratorNewBtn</tabstop>
-  <tabstop>closeNewPwPanel</tabstop>
-  <tabstop>newpasswordtxt</tabstop>
-  <tabstop>inputPassPeek</tabstop>
-  <tabstop>createNewLoginBtn</tabstop>
-  <tabstop>newlogintxt</tabstop>
   <tabstop>newlogintitletxt</tabstop>
+  <tabstop>newlogintxt</tabstop>
+  <tabstop>newpasswordtxt</tabstop>
+  <tabstop>createNewLoginBtn</tabstop>
+  <tabstop>closeNewPwPanel</tabstop>
+  <tabstop>openSettingsBtn</tabstop>
+  <tabstop>inputPassPeek</tabstop>
+  <tabstop>openGeneratorNewBtn</tabstop>
+  <tabstop>openGeneratorBtn</tabstop>
+  <tabstop>newAssetBtn</tabstop>
   <tabstop>refreshBtn</tabstop>
   <tabstop>PasswordBox</tabstop>
   <tabstop>alphaNumSpin</tabstop>
