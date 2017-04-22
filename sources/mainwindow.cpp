@@ -3,6 +3,7 @@
 
 QString masterpassword = NULL;
 QVector<QString> safeItems;
+bool inEditMode = false;
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -176,6 +177,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                 return QObject::eventFilter(obj, event);
             }
 
+            if (keyEvent->key() == Qt::Key_Space) {
+                openEditMode(qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->currentItem())));
+                return QObject::eventFilter(obj, event);
+            }
+
             if (keyEvent->key() == Qt::Key_Up) {
                 if (ui->listWidget->item(0)->isSelected()) {
                     ui->listWidget->item(0)->setSelected(false);
@@ -293,6 +299,31 @@ void MainWindow::on_newpasswordtxt_textChanged(const QString &arg1)
     } else {
         ui->createNewLoginBtn->setDisabled(true);
     }
+}
+
+void MainWindow::openEditMode(safeitem *si) {
+    inEditMode = true;
+    ui->newAssetFrame->setVisible(true);
+    ui->newlogintitletxt->setText(si->getLabel());
+    ui->newlogintxt->setText(si->getLogin());
+    ui->newpasswordtxt->setText(si->getPassword());
+    ui->newlogintitletxt->setFocus();
+    ui->createNewLoginBtn->setText("Update");
+    ui->generatePasswordPanel->setVisible(false);
+}
+
+void MainWindow::closeEditMode() {
+    inEditMode = false;
+    ui->newlogintitletxt->setText("");
+    ui->newlogintxt->setText("");
+    ui->newpasswordtxt->setText("");
+    ui->createNewLoginBtn->setText("Save");
+    ui->newpasswordtxt->setStyleSheet(
+                "background-color:#FEFDFC; border: 1px solid #D8D9D9"
+                );
+    ui->newlogintitletxt->setStyleSheet(
+                "background-color:#FEFDFC; border: 1px solid #E64B5F"
+                );
 }
 
 void MainWindow::on_newpasswordtxt_returnPressed()
