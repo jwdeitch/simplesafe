@@ -668,9 +668,9 @@ border: 1px solid #D4D5D5;</string>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
   <zorder>searchBackdrop_2</zorder>
-  <zorder>newAssetFrame</zorder>
   <zorder>generatePasswordPanel</zorder>
   <zorder>lockFrame</zorder>
+  <zorder>newAssetFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

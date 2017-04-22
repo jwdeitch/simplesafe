@@ -55,6 +55,8 @@ private slots:
 
     void on_newpasswordtxt_textChanged(const QString &arg1);
 
+    void on_newpasswordtxt_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };

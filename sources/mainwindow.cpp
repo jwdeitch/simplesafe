@@ -294,3 +294,10 @@ void MainWindow::on_newpasswordtxt_textChanged(const QString &arg1)
         ui->createNewLoginBtn->setDisabled(true);
     }
 }
+
+void MainWindow::on_newpasswordtxt_returnPressed()
+{
+    if (ui->createNewLoginBtn->isEnabled()) {
+        ui->createNewLoginBtn->click();
+    }
+}
