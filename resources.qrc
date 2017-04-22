@@ -4,5 +4,6 @@
         <file>images/eye.png</file>
         <file>images/copy.png</file>
         <file>images/settings.png</file>
+        <file>images/safe.png</file>
     </qresource>
 </RCC>

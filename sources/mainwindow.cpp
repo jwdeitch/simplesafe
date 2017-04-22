@@ -15,10 +15,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->newlogintitletxt->installEventFilter(this);
     ui->createNewLoginBtn->setDisabled(true);
     ui->searchField->installEventFilter(this);
+    ui->searchField->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->masterPassword->setAttribute(Qt::WA_MacShowFocusRect, 0);
     ui->generatePasswordPanel->setVisible(false);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
+    ui->masterPassword->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    ui->masterPassword->setEchoMode(QLineEdit::Password);
     ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
@@ -193,6 +197,9 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (ui->lockFrame->isVisible()) {
+            return;
+        }
         if (keyEvent->key() == Qt::Key_Escape) {
             ui->newAssetFrame->setVisible(false);
             ui->generatePasswordPanel->setVisible(false);
