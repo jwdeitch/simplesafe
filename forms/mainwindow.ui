@@ -273,6 +273,9 @@ border-top:1px solid #d6d6d6;</string>
       <family>Courier New</family>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#FEFDFC;</string>
+    </property>
     <property name="placeholderText">
      <string>Password</string>
     </property>
@@ -334,6 +337,9 @@ border-top:1px solid #d6d6d6;</string>
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#FEFDFC;</string>
+    </property>
     <property name="placeholderText">
      <string>Login</string>
     </property>
@@ -346,6 +352,9 @@ border-top:1px solid #d6d6d6;</string>
       <width>221</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#FEFDFC;</string>
     </property>
     <property name="placeholderText">
      <string>Label</string>
@@ -534,9 +543,9 @@ border: 1px solid #D4D5D5;</string>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
   <zorder>searchBackdrop_2</zorder>
-  <zorder>newAssetFrame</zorder>
   <zorder>generatePasswordPanel</zorder>
   <zorder>lockFrame</zorder>
+  <zorder>newAssetFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(QSize(238, 419));
     ui->listWidget->installEventFilter(this);
+    ui->newpasswordtxt->installEventFilter(this);
+    ui->newlogintitletxt->installEventFilter(this);
+    ui->createNewLoginBtn->setDisabled(true);
     ui->searchField->installEventFilter(this);
     ui->generatePasswordPanel->setVisible(false);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
@@ -234,4 +237,42 @@ void MainWindow::on_refreshBtn_clicked()
 void MainWindow::on_CopyBtn_clicked()
 {
     copyToClipboard(ui->PasswordBox->toPlainText().simplified());
+}
+
+void MainWindow::on_newlogintitletxt_textChanged(const QString &arg1)
+{
+    if (arg1.isEmpty()) {
+        ui->newlogintitletxt->setStyleSheet(
+                    "background-color:#FEFDFC; border: 1px solid #E64B5F"
+                    );
+    } else {
+        ui->newlogintitletxt->setStyleSheet(
+                    "background-color:#FEFDFC; border: 1px solid #D8D9D9"
+                    );
+    }
+
+    if ( ui->newpasswordtxt->text().size() > 0 && ui->newlogintitletxt->text().size() > 0 ) {
+        ui->createNewLoginBtn->setDisabled(false);
+    } else {
+        ui->createNewLoginBtn->setDisabled(true);
+    }
+}
+
+void MainWindow::on_newpasswordtxt_textChanged(const QString &arg1)
+{
+    qDebug() << "wefwef" << arg1.isEmpty() << arg1;
+    if (arg1.isEmpty()) {
+        ui->newpasswordtxt->setStyleSheet(
+                    "background-color:#FEFDFC; border: 1px solid #E64B5F"
+                    );
+    } else {
+        ui->newpasswordtxt->setStyleSheet(
+                    "background-color:#FEFDFC; border: 1px solid #D8D9D9"
+                    );
+    }
+    if (ui->newpasswordtxt->text().size() > 0 && ui->newlogintitletxt->text().size() > 0) {
+        ui->createNewLoginBtn->setDisabled(false);
+    } else {
+        ui->createNewLoginBtn->setDisabled(true);
+    }
 }

@@ -51,6 +51,10 @@ private slots:
 
     void on_searchField_textChanged(const QString &arg1);
 
+    void on_newlogintitletxt_textChanged(const QString &arg1);
+
+    void on_newpasswordtxt_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };
