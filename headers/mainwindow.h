@@ -5,6 +5,13 @@
 #include <QClipboard>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QStandardPaths>
+#include "headers/safeitem.h"
+#include "headers/appdata.h"
+#include <QStringList>
+#include <QVector>
+#include <QDebug>
+#include "headers/passwordgenerator.h"
 
 class QListWidgetItem;
 namespace Ui {

@@ -1,12 +1,5 @@
 #include "headers/mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QStandardPaths>
-#include "headers/safeitem.h"
-#include "headers/appdata.h"
-#include <QStringList>
-#include <QVector>
-#include <QDebug>
-#include "headers/passwordgenerator.h"
 
 QString masterpassword = NULL;
 QVector<QString> safeItems;
@@ -18,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(QSize(238, 419));
     ui->listWidget->installEventFilter(this);
+    ui->searchField->installEventFilter(this);
     ui->generatePasswordPanel->setVisible(false);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
@@ -151,13 +145,33 @@ void MainWindow::on_searchField_textChanged(const QString &arg1)
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-        qDebug() << "key " << keyEvent->key() << "from" << obj;
-        if ((keyEvent->key()==Qt::Key_Enter) || (keyEvent->key()==Qt::Key_Return)) {
-            safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->currentItem()));
-            copyToClipboard(si->getPassword());
-            si->flashCopiedLabel();
+    if (obj == ui->searchField) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            if (keyEvent->key() == Qt::Key_Down) {
+                ui->listWidget->item(0)->setSelected(true);
+                ui->listWidget->setFocus();
+            }
+        }
+    }
+
+    if (obj == ui->listWidget){
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            qDebug() << "key " << keyEvent->key() << "from" << obj;
+            if ((keyEvent->key()==Qt::Key_Enter) || (keyEvent->key()==Qt::Key_Return)) {
+                safeitem *si =  qobject_cast<safeitem *>( ui->listWidget->itemWidget(ui->listWidget->currentItem()));
+                copyToClipboard(si->getPassword());
+                si->flashCopiedLabel();
+                return QObject::eventFilter(obj, event);
+            }
+
+            if (keyEvent->key() < Qt::Key_multiply & keyEvent->key() > Qt::Key_Any) {
+                ui->searchField->setFocus();
+                ui->searchField->setText(keyEvent->text());
+                return QObject::eventFilter(obj, event);
+            }
+
         }
     }
     return QObject::eventFilter(obj, event);
