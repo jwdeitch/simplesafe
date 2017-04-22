@@ -12,6 +12,7 @@ safeitem::safeitem(QWidget *parent) :
 
 void safeitem::setLabel(QString text) {
     ui->TitleLabel->setText(text);
+    label = text;
 }
 
 void safeitem::setProperties(QJsonObject jsonObj) {

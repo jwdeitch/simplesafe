@@ -139,6 +139,7 @@ void MainWindow::on_openGeneratorNewBtn_clicked()
 void MainWindow::on_closeNewPwPanel_clicked()
 {
     ui->newAssetFrame->setVisible(false);
+    ui->listWidget->setFocus();
 }
 
 void MainWindow::on_openGeneratorBtn_clicked()
