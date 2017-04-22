@@ -25,6 +25,10 @@ QString safeitem::getLabel() {
     return label;
 }
 
+void safeitem::setFilename(QString text) {
+    filename = text;
+}
+
 void safeitem::flashCopiedLabel() {
     ui->copiedLabelMain->setVisible(true);
     QTimer::singleShot(1000, [this]() { ui->copiedLabelMain->setVisible(false); } );
@@ -38,8 +42,11 @@ QString safeitem::getPassword() {
     return password;
 }
 
+QString safeitem::getFilename() {
+    return filename;
+}
+
 void safeitem::setLogin(QString text) {
-//    ui->loginLabel->setText(text);
     login = text;
 }
 

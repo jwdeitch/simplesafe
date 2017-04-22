@@ -50,6 +50,7 @@ void MainWindow::refreshListView() {
         item->setSizeHint(QSize(100, 30));
         ui->listWidget->addItem(item);
         safeitem *safeListItem = new safeitem;
+        safeListItem->setFilename(dirContents[i]);
         safeListItem->setProperties(safelet);
         ui->listWidget->setItemWidget(item, safeListItem);
     }
@@ -68,18 +69,25 @@ void MainWindow::on_masterPassword_returnPressed()
 void MainWindow::on_createNewLoginBtn_clicked()
 {
     appData *ap = new appData(masterpassword);
-    ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
-    QListWidgetItem *item = new QListWidgetItem;
-    item->setSizeHint(QSize(100, 30));
-    ui->listWidget->addItem(item);
-    safeitem *safeListItem = new safeitem;
-    safeListItem->setLabel(ui->newlogintitletxt->text());
-    safeListItem->setPassword(ui->newpasswordtxt->text());
-    safeListItem->setLogin(ui->newlogintxt->text());
-    ui->newlogintitletxt->setText("");
-    ui->newpasswordtxt->setText("");
-    ui->newlogintxt->setText("");
-    ui->listWidget->setItemWidget(item, safeListItem);
+    if (inEditMode) {
+        safeitem *si = qobject_cast<safeitem *>( ui->listWidget->itemWidget( ui->listWidget->currentItem() ) );
+        ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text(), si->getFilename());
+        si->setLabel(ui->newlogintitletxt->text());
+        si->setPassword(ui->newpasswordtxt->text());
+        si->setLogin(ui->newlogintxt->text());
+    } else {
+        QString filename = ap->insertNewPassword(ui->newlogintitletxt->text(), ui->newlogintxt->text(), ui->newpasswordtxt->text());
+        QListWidgetItem *item = new QListWidgetItem;
+        item->setSizeHint(QSize(100, 30));
+        ui->listWidget->addItem(item);
+        safeitem *safeListItem = new safeitem;
+        safeListItem->setLabel(ui->newlogintitletxt->text());
+        safeListItem->setPassword(ui->newpasswordtxt->text());
+        safeListItem->setLogin(ui->newlogintxt->text());
+        safeListItem->setFilename(filename);
+        ui->listWidget->setItemWidget(item, safeListItem);
+    }
+    closeEditMode();
     ui->newAssetFrame->setVisible(false);
 }
 
@@ -210,6 +218,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
             ui->newAssetFrame->setVisible(false);
             ui->generatePasswordPanel->setVisible(false);
             ui->searchField->setFocus();
+            closeEditMode();
         }
         if (keyEvent->matches(QKeySequence::New)) {
             ui->newAssetFrame->setVisible(true);
@@ -322,8 +331,9 @@ void MainWindow::closeEditMode() {
                 "background-color:#FEFDFC; border: 1px solid #D8D9D9"
                 );
     ui->newlogintitletxt->setStyleSheet(
-                "background-color:#FEFDFC; border: 1px solid #E64B5F"
+                "background-color:#FEFDFC; border: 1px solid #D8D9D9"
                 );
+    ui->createNewLoginBtn->setDisabled(true);
 }
 
 void MainWindow::on_newpasswordtxt_returnPressed()

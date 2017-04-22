@@ -49,6 +49,7 @@ private slots:
     void on_refreshBtn_clicked();
     void on_CopyBtn_clicked();
     void openEditMode(safeitem *si);
+    void closeEditMode();
     void on_searchField_textChanged(const QString &arg1);
 
     void on_newlogintitletxt_textChanged(const QString &arg1);

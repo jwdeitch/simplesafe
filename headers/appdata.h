@@ -22,7 +22,7 @@ public:
         QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QString(), QStandardPaths::LocateDirectory);
         return path.left(path.length() - 1) + "safe/";
     }
-    void insertNewPassword(QString label, QString login, QString password);
+    QString insertNewPassword(QString label, QString login, QString password, QString filename=NULL);
     static bool shouldInitialize();
     void setMasterPassword(QString password);
     bool checkMasterPassword(QString password);

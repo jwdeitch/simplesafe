@@ -8,7 +8,7 @@ appData::appData(QString password) {
     botan.setPassword(password);
 }
 
-void appData::insertNewPassword(QString label, QString login, QString password) {
+QString appData::insertNewPassword(QString label, QString login, QString password, QString filename) {
     auto data1 = QJsonObject(
     {
         qMakePair(QString("label"), QJsonValue(label)),
@@ -17,7 +17,11 @@ void appData::insertNewPassword(QString label, QString login, QString password) 
     });
     QJsonDocument doc(data1);
     QString strJson(doc.toJson(QJsonDocument::Compact));
-    fs::writeFile(appData::resourcesDirLocation() + QDateTime::currentMSecsSinceEpoch()*1000 + ".p", botan.Encrypt(strJson));
+    if (filename.isNull()) {
+        QString filename = QString::number((QDateTime::currentMSecsSinceEpoch()/1000)) + ".p";
+    }
+    fs::writeFile(appData::resourcesDirLocation() + filename, botan.Encrypt(strJson));
+    return filename;
 }
 
 QJsonObject appData::retrievePasswordContents(QString path) {
