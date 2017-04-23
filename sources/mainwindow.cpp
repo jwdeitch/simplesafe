@@ -65,6 +65,7 @@ void MainWindow::on_newAssetBtn_clicked()
 {
     hideAllFrames();
     ui->newAssetFrame->setVisible(true);
+    ui->backBtn->setVisible(true);
     ui->newlogintitletxt->setFocus();
 }
 
@@ -94,6 +95,8 @@ void MainWindow::on_masterPassword_returnPressed()
         masterpassword = ui->masterPassword->text();
         ui->lockFrame->setVisible(false);
         refreshListView();
+    } else {
+        ui->masterPassword->setStyleSheet("background-color:#F5F5F5;border: 1px solid #E7746F;");
     }
 }
 
@@ -168,6 +171,7 @@ void MainWindow::on_openGeneratorNewBtn_clicked()
 
 void MainWindow::on_openGeneratorBtn_clicked()
 {
+    hideAllFrames();
     ui->backBtn->setVisible(true);
     if (!ui->generatePasswordPanel->isVisible()) {
         ui->refreshBtn->click();
@@ -207,8 +211,10 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         if (event->type() == QEvent::KeyPress) {
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
             if (keyEvent->key() == Qt::Key_Down) {
-                ui->listWidget->item(0)->setSelected(true);
-                ui->listWidget->setFocus();
+                if (ui->listWidget->count() > 0) {
+                    ui->listWidget->item(0)->setSelected(true);
+                    ui->listWidget->setFocus();
+                }
             }
         }
     }
@@ -308,6 +314,8 @@ void MainWindow::on_refreshBtn_clicked()
 
 void MainWindow::on_CopyBtn_clicked()
 {
+    ui->CopyBtn->setText("Copied");
+    QTimer::singleShot(1000, [this]() { ui->CopyBtn->setText("Copy"); } );
     copyToClipboard(ui->PasswordBox->toPlainText().simplified());
 }
 

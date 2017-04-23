@@ -98,6 +98,9 @@
     <property name="pixmap">
      <pixmap resource="../resources.qrc">:/images/images/safe.png</pixmap>
     </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="newUserBtn">
     <property name="geometry">
