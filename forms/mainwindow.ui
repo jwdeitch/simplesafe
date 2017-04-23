@@ -835,11 +835,11 @@ QPushButton:disabled#saveSettingsBtn
   <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>settingsFrame</zorder>
   <zorder>searchBackdrop_2</zorder>
   <zorder>generatePasswordPanel</zorder>
   <zorder>newAssetFrame</zorder>
+  <zorder>lockFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

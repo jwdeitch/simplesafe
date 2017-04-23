@@ -122,7 +122,7 @@ void MainWindow::on_inputPassPeek_released()
 void MainWindow::copyToClipboard(QString text) {
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(text);
-    QTimer::singleShot(ui->cbResetSpin->value(), this, SLOT(resetClipboardText()));
+    QTimer::singleShot(ui->cbResetSpin->value() * 1000, this, SLOT(resetClipboardText()));
 }
 
 void MainWindow::resetClipboardText() {
@@ -388,6 +388,7 @@ void MainWindow::lock() {
     hideAllFrames();
     masterpassword = QString();
     ui->lockFrame->setVisible(true);
+    ui->masterPassword->setFocus();
 }
 
 void MainWindow::resetLock() {
