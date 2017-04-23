@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     hideAllFrames();
     loadSettings();
     initLock();
-    ui->encFilePath->setPlainText(appData::resourcesDirLocation() + "safe");
+    ui->encFilePath->setPlainText(appData::resourcesDirLocation());
     ui->listWidget->installEventFilter(this);
 //    prepareTrayItem();
     qApp->installEventFilter(this);

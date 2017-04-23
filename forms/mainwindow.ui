@@ -123,7 +123,6 @@ border-right: 1px solid #B8B8B8;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <zorder>settingsFrame</zorder>
   </widget>
   <widget class="QFrame" name="searchBackdrop_2">
    <property name="geometry">
@@ -591,15 +590,6 @@ QPushButton:focus#closeNewPwPanel {
      <number>10</number>
     </property>
    </widget>
-   <zorder>refreshBtn</zorder>
-   <zorder>PasswordBox</zorder>
-   <zorder>label</zorder>
-   <zorder>alphaNumSpin</zorder>
-   <zorder>CopyBtn</zorder>
-   <zorder>label_2</zorder>
-   <zorder>SymbolSpin</zorder>
-   <zorder>newAssetFrame</zorder>
-   <zorder>newAssetFrame</zorder>
   </widget>
   <widget class="QFrame" name="lockFrame">
    <property name="geometry">
@@ -667,13 +657,6 @@ border: 1px solid #D4D5D5;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>masterPassword</zorder>
-   <zorder>fileListWidget</zorder>
-   <zorder>filePane</zorder>
-   <zorder>generatePasswordPanel</zorder>
-   <zorder>generatePasswordPanel</zorder>
-   <zorder>logoLabel</zorder>
-   <zorder>settingsFrame</zorder>
   </widget>
   <widget class="QFrame" name="settingsFrame">
    <property name="geometry">
@@ -837,8 +820,8 @@ QPushButton:disabled#saveSettingsBtn
    <widget class="QPushButton" name="resetMasterPassBtn">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>310</y>
+      <x>33</x>
+      <y>291</y>
       <width>171</width>
       <height>32</height>
      </rect>
@@ -870,16 +853,37 @@ QPushButton:focus#resetMasterPassBtn
      <string>Reset Master Password</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>366</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:none;</string>
+    </property>
+    <property name="text">
+     <string>Qt 5.8, C++11, jwdeitch, Version 0.01</string>
+    </property>
+   </widget>
   </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
   <zorder>generatePasswordPanel</zorder>
-  <zorder>settingsFrame</zorder>
   <zorder>newAssetFrame</zorder>
   <zorder>searchBackdrop_2</zorder>
   <zorder>lockFrame</zorder>
+  <zorder>settingsFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

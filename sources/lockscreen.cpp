@@ -30,6 +30,8 @@ void lockScreen::on_submitBtn_clicked()
         MainWindow *w = new MainWindow();
         w->setMasterPassword(ui->password1->text());
         w->show();
+    } else {
+        ui->password2->setStyleSheet("border: 1px solid #E7746F");
     }
 }
 

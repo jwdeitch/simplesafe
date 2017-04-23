@@ -5,7 +5,7 @@
 appData::appData(QString password) {
     BotanWrapper botan;
     botan.setSalt(constants::SALT);
-    botan.setPassword(password);
+    botan.setPassword(password + constants::SALT);
 }
 
 QString appData::insertNewPassword(QString label, QString login, QString password, QString filename) {
