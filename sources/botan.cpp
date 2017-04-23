@@ -5,7 +5,7 @@
 * Distributed under the terms of the Botan license
 */
 
-#include "botan.h"
+#include "headers/botan.h"
 #include <deque>
 
 #ifdef Q_OS_WIN

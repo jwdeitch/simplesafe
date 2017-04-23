@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Simple Safe</string>
   </property>
   <widget class="QLineEdit" name="password1">
    <property name="geometry">
@@ -57,15 +57,100 @@
     <rect>
      <x>25</x>
      <y>15</y>
-     <width>151</width>
+     <width>251</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set a master password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set a master password&lt;br/&gt;&lt;span style=&quot; font-size:small; color:#9e3236;&quot;&gt;This can never be recovered if lost!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
+  <widget class="QFrame" name="greetingFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>307</width>
+     <height>216</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F2F2F2;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>111</x>
+      <y>23</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resources.qrc">:/images/images/safe.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="newUserBtn">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>131</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#newUserBtn {
+	border-radius: 3;
+		color: white;
+		}
+		
+		QPushButton:enabled#newUserBtn {
+			background-color: #008AE8;
+				border: 1px solid #0079D4;
+				}
+				
+				QPushButton:hover#newUserBtn
+				{
+					background-color: #0078CA;
+						border: 1px solid #0079D4;
+						}
+						
+						QPushButton:focus#newUserBtn
+						{
+							background-color: #0078CA;
+								border: 1px solid #0079D4;
+								}
+								
+								QPushButton:disabled#newUserBtn
+								{
+									border: 1px solid #A0C2D9;
+										background-color: #ABCFE8;
+										}</string>
+    </property>
+    <property name="text">
+     <string>New User</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>newUserBtn</tabstop>
+  <tabstop>password1</tabstop>
+  <tabstop>password2</tabstop>
+  <tabstop>submitBtn</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

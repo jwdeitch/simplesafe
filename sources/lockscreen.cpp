@@ -10,6 +10,10 @@ lockScreen::lockScreen(QWidget *parent) :
     ui(new Ui::lockScreen)
 {
     ui->setupUi(this);
+    ui->password1->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    ui->password1->setEchoMode(QLineEdit::Password);
+    ui->password2->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    ui->password2->setEchoMode(QLineEdit::Password);
 }
 
 lockScreen::~lockScreen()
@@ -29,8 +33,11 @@ void lockScreen::on_submitBtn_clicked()
     }
 }
 
-void is_password(bool password) {
+void lockScreen::resetMode() {
+    ui->greetingFrame->hide();
+}
 
-
-
+void lockScreen::on_newUserBtn_clicked()
+{
+    ui->greetingFrame->setVisible(false);
 }

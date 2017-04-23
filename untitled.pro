@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = untitled
 TEMPLATE = app
 
+macx:ICON = $${PWD}/safe.icns
+
 include(botan.pri)
 
 SOURCES += sources/main.cpp\

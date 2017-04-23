@@ -670,6 +670,7 @@ border: 1px solid #D4D5D5;</string>
    <zorder>generatePasswordPanel</zorder>
    <zorder>generatePasswordPanel</zorder>
    <zorder>logoLabel</zorder>
+   <zorder>settingsFrame</zorder>
   </widget>
   <widget class="QFrame" name="settingsFrame">
    <property name="geometry">
@@ -696,7 +697,7 @@ border: 1px solid #D4D5D5;</string>
     <property name="geometry">
      <rect>
       <x>176</x>
-      <y>60</y>
+      <y>22</y>
       <width>48</width>
       <height>24</height>
      </rect>
@@ -712,7 +713,7 @@ border: 1px solid #D4D5D5;</string>
     <property name="geometry">
      <rect>
       <x>176</x>
-      <y>100</y>
+      <y>61</y>
       <width>48</width>
       <height>24</height>
      </rect>
@@ -727,8 +728,8 @@ border: 1px solid #D4D5D5;</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
+      <x>8</x>
+      <y>14</y>
       <width>161</width>
       <height>41</height>
      </rect>
@@ -743,8 +744,8 @@ border: 1px solid #D4D5D5;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>105</y>
+      <x>8</x>
+      <y>64</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -759,10 +760,10 @@ border: 1px solid #D4D5D5;</string>
    <widget class="QPlainTextEdit" name="encFilePath">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>221</width>
-      <height>121</height>
+      <x>7</x>
+      <y>120</y>
+      <width>223</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -775,8 +776,8 @@ border: 1px solid #D4D5D5;</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>160</y>
+      <x>8</x>
+      <y>100</y>
       <width>151</width>
       <height>16</height>
      </rect>
@@ -792,7 +793,7 @@ border: 1px solid #D4D5D5;</string>
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>330</y>
+      <y>240</y>
       <width>91</width>
       <height>32</height>
      </rect>
@@ -830,16 +831,52 @@ QPushButton:disabled#saveSettingsBtn
      <string>Save</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="resetMasterPassBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>310</y>
+      <width>171</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#resetMasterPassBtn {
+	border-radius: 3;
+	color: black;
+}
+
+QPushButton:enabled#resetMasterPassBtn {
+	background-color: #F2F2F2;
+	border: 1px solid #DEDEDE;
+}
+
+QPushButton:hover#resetMasterPassBtn
+{
+	background-color: #E9E9E9;
+	border: 1px solid #D8D9D9;
+}
+
+QPushButton:focus#resetMasterPassBtn
+{
+	background-color: #E9E9E9;
+	border: 1px solid #D8D9D9;
+}</string>
+    </property>
+    <property name="text">
+     <string>Reset Master Password</string>
+    </property>
+   </widget>
   </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
-  <zorder>settingsFrame</zorder>
   <zorder>searchBackdrop_2</zorder>
   <zorder>generatePasswordPanel</zorder>
   <zorder>newAssetFrame</zorder>
   <zorder>lockFrame</zorder>
+  <zorder>settingsFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

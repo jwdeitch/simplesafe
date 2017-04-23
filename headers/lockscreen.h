@@ -17,9 +17,11 @@ class lockScreen : public QDialog
 public:
     explicit lockScreen(QWidget *parent = 0);
     ~lockScreen();
+    void resetMode();
 
 private slots:
     void on_submitBtn_clicked();
+    void on_newUserBtn_clicked();
 
 private:
     Ui::lockScreen *ui;

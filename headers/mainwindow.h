@@ -36,7 +36,7 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void keyPressEvent(QKeyEvent *event);
     QString generate();
-    void closeEvent(QCloseEvent *event) override;
+//    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_newAssetBtn_clicked();
@@ -68,6 +68,8 @@ private slots:
     void on_saveSettingsBtn_clicked();
 
     void on_backBtn_clicked();
+
+    void on_resetMasterPassBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
