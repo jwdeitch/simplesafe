@@ -44,7 +44,6 @@ private slots:
     void on_inputPassPeek_released();
     void showGenerator();
     void on_openGeneratorNewBtn_clicked();
-    void on_closeNewPwPanel_clicked();
     void on_openGeneratorBtn_clicked();
     void on_refreshBtn_clicked();
     void on_CopyBtn_clicked();
@@ -63,6 +62,8 @@ private slots:
     void on_openSettingsBtn_clicked();
 
     void on_saveSettingsBtn_clicked();
+
+    void on_backBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

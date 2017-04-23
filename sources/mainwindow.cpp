@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->encFilePath->setPlainText(appData::resourcesDirLocation() + "safe");
     ui->listWidget->installEventFilter(this);
     qApp->installEventFilter(this);
+    ui->backBtn->setVisible(false);
     ui->newpasswordtxt->installEventFilter(this);
     ui->newlogintitletxt->installEventFilter(this);
     ui->createNewLoginBtn->setDisabled(true);
@@ -95,6 +96,7 @@ void MainWindow::on_createNewLoginBtn_clicked()
         ui->listWidget->setItemWidget(item, safeListItem);
     }
     closeEditMode();
+    ui->backBtn->setVisible(false);
     ui->newAssetFrame->setVisible(false);
 }
 
@@ -141,14 +143,9 @@ void MainWindow::on_openGeneratorNewBtn_clicked()
     QTimer::singleShot(1000, [this]() { ui->newpasswordtxt->setEchoMode(QLineEdit::Password); } );
 }
 
-void MainWindow::on_closeNewPwPanel_clicked()
-{
-    ui->newAssetFrame->setVisible(false);
-    ui->listWidget->setFocus();
-}
-
 void MainWindow::on_openGeneratorBtn_clicked()
 {
+    ui->backBtn->setVisible(true);
     if (!ui->generatePasswordPanel->isVisible()) {
         ui->refreshBtn->click();
     }
@@ -235,6 +232,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         if (keyEvent->matches(QKeySequence::New)) {
             ui->newAssetFrame->setVisible(true);
             ui->newlogintitletxt->setFocus();
+            ui->backBtn->setVisible(true);
             ui->generatePasswordPanel->setVisible(false);
         }
     }
@@ -359,6 +357,7 @@ void MainWindow::on_newpasswordtxt_returnPressed()
 void MainWindow::on_openSettingsBtn_clicked()
 {
     hideAllFrames();
+    ui->backBtn->setVisible(true);
     ui->settingsFrame->setVisible(true);
 }
 
@@ -366,6 +365,7 @@ void MainWindow::hideAllFrames() {
     ui->newAssetFrame->setVisible(false);
     ui->generatePasswordPanel->setVisible(false);
     ui->settingsFrame->setVisible(false);
+    ui->backBtn->setVisible(false);
 }
 
 void MainWindow::on_saveSettingsBtn_clicked()
@@ -398,4 +398,9 @@ void MainWindow::initLock() {
     lockTimeout = new QTimer(this);
     connect(lockTimeout, SIGNAL(timeout()), this, SLOT(lock()));
     resetLock();
+}
+
+void MainWindow::on_backBtn_clicked()
+{
+    hideAllFrames();
 }

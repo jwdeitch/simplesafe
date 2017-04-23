@@ -281,34 +281,6 @@ border-top:1px solid #d6d6d6;</string>
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="closeNewPwPanel">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>158</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#closeNewPwPanel {
-	background-color:#F2F2F2;
-	border: 1px solid #DEDEDE;
-	border-radius: 3;
-}
-
-QPushButton:hover#closeNewPwPanel {
-	background-color: #E9E9E9;
-}
-
-QPushButton:focus#closeNewPwPanel {
-	background-color: #E9E9E9;
-}</string>
-    </property>
-    <property name="text">
-     <string>Close</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="newpasswordtxt">
     <property name="geometry">
      <rect>
@@ -360,8 +332,8 @@ background-color: rbga(0,0,0,0.5);</string>
    <widget class="QPushButton" name="createNewLoginBtn">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>158</y>
+      <x>90</x>
+      <y>170</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -863,11 +835,11 @@ QPushButton:disabled#saveSettingsBtn
   <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
-  <zorder>newAssetFrame</zorder>
   <zorder>lockFrame</zorder>
-  <zorder>generatePasswordPanel</zorder>
   <zorder>settingsFrame</zorder>
   <zorder>searchBackdrop_2</zorder>
+  <zorder>generatePasswordPanel</zorder>
+  <zorder>newAssetFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -877,7 +849,6 @@ QPushButton:disabled#saveSettingsBtn
   <tabstop>newlogintxt</tabstop>
   <tabstop>newpasswordtxt</tabstop>
   <tabstop>createNewLoginBtn</tabstop>
-  <tabstop>closeNewPwPanel</tabstop>
   <tabstop>openSettingsBtn</tabstop>
   <tabstop>inputPassPeek</tabstop>
   <tabstop>openGeneratorNewBtn</tabstop>
