@@ -9,13 +9,13 @@ appData::appData(QString password) {
 }
 
 QString appData::insertNewPassword(QString label, QString login, QString password, QString filename) {
-    auto data1 = QJsonObject(
+    auto data = QJsonObject(
     {
         qMakePair(QString("label"), QJsonValue(label)),
         qMakePair(QString("login"), QJsonValue(login)),
         qMakePair(QString("password"), QJsonValue(password))
     });
-    QJsonDocument doc(data1);
+    QJsonDocument doc(data);
     QString strJson(doc.toJson(QJsonDocument::Compact));
     QString fileString;
     if (filename.isNull()) {
@@ -54,4 +54,27 @@ bool appData::checkMasterPassword(QString password) {
 
     return false;
 
+}
+
+void appData::writeSettings(int cbReset, int lockReset) {
+    auto data = QJsonObject(
+    {
+        qMakePair(QString("cbReset"), QJsonValue(cbReset)),
+        qMakePair(QString("lockReset"), QJsonValue(lockReset))
+    });
+    QJsonDocument doc(data);
+    QString strJson(doc.toJson(QJsonDocument::Compact));
+    fs::writeFile(appData::resourcesDirLocation() + ".settings", botan.Encrypt(strJson));
+}
+
+QJsonObject appData::readSettings() {
+    QString fileContents = fs::readFile(appData::resourcesDirLocation() + ".settings.enc");
+    QString decrpytedContents = botan.Decrypt(fileContents);
+    QJsonDocument unencrpytedFile = QJsonDocument::fromJson(decrpytedContents.toUtf8());
+    return unencrpytedFile.object();
+}
+
+bool appData::doSettingsExist() {
+    QFileInfo settings(appData::resourcesDirLocation() + ".settings.enc");
+    return settings.exists();
 }

@@ -123,6 +123,7 @@ border-right: 1px solid #B8B8B8;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <zorder>settingsFrame</zorder>
   </widget>
   <widget class="QFrame" name="searchBackdrop_2">
    <property name="geometry">
@@ -206,14 +207,40 @@ border-top:1px solid #d6d6d6;</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="backBtn">
+    <property name="geometry">
+     <rect>
+      <x>202</x>
+      <y>6</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../resources.qrc">
+      <normaloff>:/images/images/back.png</normaloff>:/images/images/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="newAssetFrame">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>38</y>
+     <y>0</y>
      <width>239</width>
-     <height>351</height>
+     <height>389</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -418,9 +445,9 @@ QPushButton:disabled#createNewLoginBtn
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>38</y>
+     <y>0</y>
      <width>239</width>
-     <height>351</height>
+     <height>389</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -592,6 +619,15 @@ QPushButton:focus#closeNewPwPanel {
      <number>10</number>
     </property>
    </widget>
+   <zorder>refreshBtn</zorder>
+   <zorder>PasswordBox</zorder>
+   <zorder>label</zorder>
+   <zorder>alphaNumSpin</zorder>
+   <zorder>CopyBtn</zorder>
+   <zorder>label_2</zorder>
+   <zorder>SymbolSpin</zorder>
+   <zorder>newAssetFrame</zorder>
+   <zorder>newAssetFrame</zorder>
   </widget>
   <widget class="QFrame" name="lockFrame">
    <property name="geometry">
@@ -599,7 +635,7 @@ QPushButton:focus#closeNewPwPanel {
      <x>0</x>
      <y>0</y>
      <width>238</width>
-     <height>419</height>
+     <height>421</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -663,14 +699,175 @@ border: 1px solid #D4D5D5;</string>
    <zorder>generatePasswordPanel</zorder>
    <zorder>logoLabel</zorder>
   </widget>
+  <widget class="QFrame" name="settingsFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>239</width>
+     <height>389</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#settingsFrame{	background-color: #F0F3F4;
+	border: none;
+	border-right: 1px solid #B8B8B8;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QSpinBox" name="cbResetSpin">
+    <property name="geometry">
+     <rect>
+      <x>176</x>
+      <y>60</y>
+      <width>48</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>30</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="lockSpin">
+    <property name="geometry">
+     <rect>
+      <x>176</x>
+      <y>100</y>
+      <width>48</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:none;</string>
+    </property>
+    <property name="text">
+     <string>Auto clear &lt;br&gt;clipboard after (seconds)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>105</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:none;</string>
+    </property>
+    <property name="text">
+     <string>Lock app after (mins)</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="encFilePath">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>221</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid grey; background-color:white</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:none;</string>
+    </property>
+    <property name="text">
+     <string>Path to encrypted files</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveSettingsBtn">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>330</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#saveSettingsBtn {
+	border-radius: 3;
+	color: white;
+}
+
+QPushButton:enabled#saveSettingsBtn {
+	background-color: #008AE8;
+	border: 1px solid #0079D4;
+}
+
+QPushButton:hover#saveSettingsBtn
+{
+	background-color: #0078CA;
+	border: 1px solid #0079D4;
+}
+
+QPushButton:focus#saveSettingsBtn
+{
+	background-color: #0078CA;
+	border: 1px solid #0079D4;
+}
+
+QPushButton:disabled#saveSettingsBtn
+{
+	border: 1px solid #61B1E8;
+	background-color: #ABCFE8;
+}</string>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+  </widget>
   <zorder>searchBackdrop</zorder>
   <zorder>searchField</zorder>
   <zorder>newAssetBtn</zorder>
   <zorder>listWidget</zorder>
-  <zorder>searchBackdrop_2</zorder>
-  <zorder>generatePasswordPanel</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>newAssetFrame</zorder>
+  <zorder>lockFrame</zorder>
+  <zorder>generatePasswordPanel</zorder>
+  <zorder>settingsFrame</zorder>
+  <zorder>searchBackdrop_2</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

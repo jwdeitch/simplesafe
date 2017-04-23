@@ -51,12 +51,18 @@ private slots:
     void openEditMode(safeitem *si);
     void closeEditMode();
     void on_searchField_textChanged(const QString &arg1);
-
+    void hideAllFrames();
     void on_newlogintitletxt_textChanged(const QString &arg1);
-
+    void loadSettings();
     void on_newpasswordtxt_textChanged(const QString &arg1);
-
+    void lock();
+    void resetLock();
+    void initLock();
     void on_newpasswordtxt_returnPressed();
+
+    void on_openSettingsBtn_clicked();
+
+    void on_saveSettingsBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

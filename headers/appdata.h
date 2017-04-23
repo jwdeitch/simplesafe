@@ -25,6 +25,9 @@ public:
     QString insertNewPassword(QString label, QString login, QString password, QString filename=NULL);
     static bool shouldInitialize();
     void setMasterPassword(QString password);
+    void writeSettings(int cbReset, int lockReset);
+    QJsonObject readSettings();
+    bool doSettingsExist();
     bool checkMasterPassword(QString password);
     QJsonObject retrievePasswordContents(QString path);
     BotanWrapper botan;

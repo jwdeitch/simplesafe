@@ -1,9 +1,10 @@
 #include "headers/mainwindow.h"
 #include "ui_mainwindow.h"
 
-QString masterpassword = NULL;
+QString masterpassword = QString();
 QVector<QString> safeItems;
 bool inEditMode = false;
+QTimer* lockTimeout;
 
 MainWindow::MainWindow(QWidget *parent) :
     QDialog(parent),
@@ -11,20 +12,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(QSize(238, 419));
+    hideAllFrames();
+    loadSettings();
+    initLock();
+    ui->encFilePath->setPlainText(appData::resourcesDirLocation() + "safe");
     ui->listWidget->installEventFilter(this);
+    qApp->installEventFilter(this);
     ui->newpasswordtxt->installEventFilter(this);
     ui->newlogintitletxt->installEventFilter(this);
     ui->createNewLoginBtn->setDisabled(true);
     ui->searchField->installEventFilter(this);
     ui->searchField->setAttribute(Qt::WA_MacShowFocusRect, 0);
     ui->masterPassword->setAttribute(Qt::WA_MacShowFocusRect, 0);
-    ui->generatePasswordPanel->setVisible(false);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui->newpasswordtxt->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->newpasswordtxt->setEchoMode(QLineEdit::Password);
     ui->masterPassword->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->masterPassword->setEchoMode(QLineEdit::Password);
-    ui->newAssetFrame->setVisible(false);
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
 
@@ -35,6 +39,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_newAssetBtn_clicked()
 {
+    hideAllFrames();
     ui->newAssetFrame->setVisible(true);
     ui->newlogintitletxt->setFocus();
 }
@@ -115,7 +120,7 @@ void MainWindow::on_inputPassPeek_released()
 void MainWindow::copyToClipboard(QString text) {
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(text);
-    QTimer::singleShot(45000, this, SLOT(resetClipboardText()));
+    QTimer::singleShot(ui->cbResetSpin->value(), this, SLOT(resetClipboardText()));
 }
 
 void MainWindow::resetClipboardText() {
@@ -168,6 +173,11 @@ void MainWindow::on_searchField_textChanged(const QString &arg1)
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
+    if (event->type() == QEvent::MouseMove) {
+        resetLock();
+        return QObject::eventFilter(obj, event);
+    }
+
     if (obj == ui->searchField) {
         if (event->type() == QEvent::KeyPress) {
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
@@ -218,8 +228,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
             return;
         }
         if (keyEvent->key() == Qt::Key_Escape) {
-            ui->newAssetFrame->setVisible(false);
-            ui->generatePasswordPanel->setVisible(false);
+            hideAllFrames();
             ui->searchField->setFocus();
             closeEditMode();
         }
@@ -318,10 +327,10 @@ void MainWindow::openEditMode(safeitem *si) {
     ui->newlogintitletxt->setText(si->getLabel());
     ui->newlogintxt->setText(si->getLogin());
     ui->newpasswordtxt->setText(si->getPassword());
+    hideAllFrames();
     ui->newAssetFrame->setVisible(true);
     ui->newlogintitletxt->setFocus();
     ui->createNewLoginBtn->setText("Update");
-    ui->generatePasswordPanel->setVisible(false);
 }
 
 void MainWindow::closeEditMode() {
@@ -345,4 +354,48 @@ void MainWindow::on_newpasswordtxt_returnPressed()
     if (ui->createNewLoginBtn->isEnabled()) {
         ui->createNewLoginBtn->click();
     }
+}
+
+void MainWindow::on_openSettingsBtn_clicked()
+{
+    hideAllFrames();
+    ui->settingsFrame->setVisible(true);
+}
+
+void MainWindow::hideAllFrames() {
+    ui->newAssetFrame->setVisible(false);
+    ui->generatePasswordPanel->setVisible(false);
+    ui->settingsFrame->setVisible(false);
+}
+
+void MainWindow::on_saveSettingsBtn_clicked()
+{
+    appData *ad = new appData(masterpassword);
+    ad->writeSettings(ui->cbResetSpin->value(), ui->lockSpin->value());
+    hideAllFrames();
+}
+
+void MainWindow::loadSettings() {
+    appData *ad = new appData(masterpassword);
+    if (ad->doSettingsExist()){
+        QJsonObject settings = ad->readSettings();
+        ui->cbResetSpin->setValue(settings["cbReset"].toInt());
+        ui->lockSpin->setValue(settings["lockReset"].toInt());
+    }
+}
+
+void MainWindow::lock() {
+    hideAllFrames();
+    masterpassword = QString();
+    ui->lockFrame->setVisible(true);
+}
+
+void MainWindow::resetLock() {
+    lockTimeout->start(ui->lockSpin->value() * 60 * 1000);
+}
+
+void MainWindow::initLock() {
+    lockTimeout = new QTimer(this);
+    connect(lockTimeout, SIGNAL(timeout()), this, SLOT(lock()));
+    resetLock();
 }
