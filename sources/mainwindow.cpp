@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initLock();
     ui->encFilePath->setPlainText(appData::resourcesDirLocation() + "safe");
     ui->listWidget->installEventFilter(this);
+    prepareTrayItem();
     qApp->installEventFilter(this);
     ui->backBtn->setVisible(false);
     ui->newpasswordtxt->installEventFilter(this);
@@ -33,9 +34,30 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
 }
 
+void MainWindow::prepareTrayItem() {
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon(":/images/images/safe.png"));
+    trayIcon->show();
+    trayIcon->setVisible(true);
+    connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::show);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+#ifdef Q_OS_OSX
+    if (!event->spontaneous() || !isVisible()) {
+        return;
+    }
+#endif
+    if (trayIcon->isVisible()) {
+        hide();
+        event->ignore();
+    }
 }
 
 void MainWindow::on_newAssetBtn_clicked()

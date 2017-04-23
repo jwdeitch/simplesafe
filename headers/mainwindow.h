@@ -10,8 +10,11 @@
 #include "headers/appdata.h"
 #include <QStringList>
 #include <QVector>
+#include <QCloseEvent>
 #include <QDebug>
 #include "headers/passwordgenerator.h"
+#include <QSystemTrayIcon>
+#include <QMenu>
 
 class QListWidgetItem;
 namespace Ui {
@@ -33,6 +36,7 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void keyPressEvent(QKeyEvent *event);
     QString generate();
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_newAssetBtn_clicked();
@@ -58,7 +62,7 @@ private slots:
     void resetLock();
     void initLock();
     void on_newpasswordtxt_returnPressed();
-
+    void prepareTrayItem();
     void on_openSettingsBtn_clicked();
 
     void on_saveSettingsBtn_clicked();
@@ -67,6 +71,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
 };
 
 #endif // MAINWINDOW_H
