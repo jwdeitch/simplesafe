@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initLock();
     ui->encFilePath->setPlainText(appData::resourcesDirLocation());
     ui->listWidget->installEventFilter(this);
-//    prepareTrayItem();
+    prepareTrayItem();
     qApp->installEventFilter(this);
     ui->backBtn->setVisible(false);
     ui->newpasswordtxt->installEventFilter(this);
@@ -36,11 +36,20 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::prepareTrayItem() {
+    trayIconMenu = new QMenu(this);
+    quitAction = new QAction(tr("&Quit"), this);
+    connect(quitAction, &QAction::triggered, this, &QCoreApplication::quit);
+    trayIconMenu->addAction(quitAction);
+
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon(":/images/images/safe.png"));
     trayIcon->show();
     trayIcon->setVisible(true);
-    connect(trayIcon, &QSystemTrayIcon::activated, this, [this](){MainWindow::open();MainWindow::show();MainWindow::setFocus();});
+    trayIcon->setContextMenu(trayIconMenu);
+    connect(trayIcon, &QSystemTrayIcon::activated, this, [this](){
+        show();
+        raise();
+    });
 }
 
 MainWindow::~MainWindow()
@@ -48,18 +57,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-//void MainWindow::closeEvent(QCloseEvent *event)
-//{
-//#ifdef Q_OS_OSX
-//    if (!event->spontaneous() || !isVisible()) {
-//        return;
-//    }
-//#endif
-//    if (trayIcon->isVisible()) {
-//        hide();
-//        event->ignore();
-//    }
-//}
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+#ifdef Q_OS_OSX
+    if (!event->spontaneous() || !isVisible()) {
+        return;
+    }
+#endif
+    if (trayIcon->isVisible()) {
+        hide();
+        event->ignore();
+    }
+}
 
 void MainWindow::on_newAssetBtn_clicked()
 {
@@ -198,9 +207,9 @@ void MainWindow::on_searchField_textChanged(const QString &arg1)
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
 
-//    if (event->type() == QEvent::ApplicationDeactivate) {
-//        close();
-//    }
+    if (event->type() == QEvent::ApplicationDeactivate) {
+        hide();
+    }
 
     if (event->type() == QEvent::MouseMove) {
         resetLock();

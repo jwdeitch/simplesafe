@@ -8,10 +8,11 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = untitled
+TARGET = SimpleSafe
 TEMPLATE = app
 
 macx:ICON = $${PWD}/safe.icns
+macx:QMAKE_INFO_PLIST = $${PWD}/info.plist
 
 include(botan.pri)
 

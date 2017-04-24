@@ -36,7 +36,7 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void keyPressEvent(QKeyEvent *event);
     QString generate();
-//    void closeEvent(QCloseEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_newAssetBtn_clicked();
@@ -75,6 +75,7 @@ private:
     Ui::MainWindow *ui;
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
+    QAction *quitAction;
 };
 
 #endif // MAINWINDOW_H
