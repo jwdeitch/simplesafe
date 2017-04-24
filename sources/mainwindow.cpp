@@ -221,9 +221,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         hide();
     }
 
-    if (event->type() == QEvent::MouseMove) {
+    if (event->type() == QEvent::MouseMove | event->type() == QEvent::KeyPress) {
         resetLock();
-        return QObject::eventFilter(obj, event);
     }
 
     if (obj == ui->searchField) {
@@ -234,6 +233,20 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                     ui->listWidget->item(0)->setSelected(true);
                     ui->listWidget->setFocus();
                 }
+            }
+
+            if (keyEvent->key() == Qt::Key_Escape) {
+                hide();
+            }
+
+        }
+    }
+
+    if (obj == ui->masterPassword) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            if (keyEvent->key() == Qt::Key_Escape) {
+                hide();
             }
         }
     }

@@ -882,8 +882,8 @@ QPushButton:focus#resetMasterPassBtn
   <zorder>generatePasswordPanel</zorder>
   <zorder>newAssetFrame</zorder>
   <zorder>searchBackdrop_2</zorder>
-  <zorder>lockFrame</zorder>
   <zorder>settingsFrame</zorder>
+  <zorder>lockFrame</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
