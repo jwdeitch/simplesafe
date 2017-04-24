@@ -15,6 +15,7 @@ macx:ICON = $${PWD}/safe.icns
 macx:QMAKE_INFO_PLIST = $${PWD}/info.plist
 
 include(botan.pri)
+include(qxtglobalshortcut5/qxt.pri)
 
 SOURCES += sources/main.cpp\
         sources/mainwindow.cpp \

@@ -1,6 +1,7 @@
 #include "headers/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "headers/lockscreen.h"
+#include "qxtglobalshortcut.h"
 
 QString masterpassword = QString();
 QVector<QString> safeItems;
@@ -40,6 +41,14 @@ void MainWindow::prepareTrayItem() {
     quitAction = new QAction(tr("&Quit"), this);
     connect(quitAction, &QAction::triggered, this, &QCoreApplication::quit);
     trayIconMenu->addAction(quitAction);
+
+    QxtGlobalShortcut *shortcut = new QxtGlobalShortcut(this);
+    shortcut->setShortcut(QKeySequence("Shift+Ctrl+9"));
+    connect(shortcut, &QxtGlobalShortcut::activated,
+        [=]() {
+        show();
+        raise();
+    });
 
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon(":/images/images/safe.png"));
