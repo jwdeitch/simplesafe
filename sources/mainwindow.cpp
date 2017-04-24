@@ -113,6 +113,7 @@ void MainWindow::on_masterPassword_returnPressed()
         masterpassword = ui->masterPassword->text();
         ui->lockFrame->setVisible(false);
         refreshListView();
+        ui->masterPassword->setText("");
     } else {
         ui->masterPassword->setStyleSheet("background-color:#F5F5F5;border: 1px solid #E7746F;");
     }
