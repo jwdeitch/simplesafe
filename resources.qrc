@@ -6,5 +6,6 @@
         <file>images/settings.png</file>
         <file>images/safe.png</file>
         <file>images/back.png</file>
+        <file>images/safe-light.png</file>
     </qresource>
 </RCC>
