@@ -190,12 +190,14 @@ void MainWindow::on_openGeneratorNewBtn_clicked()
 
 void MainWindow::on_openGeneratorBtn_clicked()
 {
-    hideAllFrames();
-    ui->backBtn->setVisible(true);
     if (!ui->generatePasswordPanel->isVisible()) {
-        ui->refreshBtn->click();
+        hideAllFrames();
+        ui->backBtn->setVisible(true);
+        if (!ui->generatePasswordPanel->isVisible()) {
+            ui->refreshBtn->click();
+        }
+        ui->generatePasswordPanel->setVisible(true);
     }
-    ui->generatePasswordPanel->setVisible(true);
 }
 
 void MainWindow::on_searchField_textChanged(const QString &arg1)
