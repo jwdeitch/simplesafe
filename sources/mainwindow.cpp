@@ -41,7 +41,15 @@ void MainWindow::prepareTrayItem() {
     quitAction = new QAction(tr("&Quit"), this);
     connect(quitAction, &QAction::triggered, this, &QCoreApplication::quit);
     trayIconMenu->addAction(quitAction);
-
+//#ifdef Q_OS_LINUX
+//    openAction = new QAction(tr("&Open"), this);
+//    connect(openAction, &QAction::triggered, this,
+//        [=]() {
+//        show();
+//        raise();
+//    });
+//        trayIconMenu->addAction(openAction);
+//#endif
     QxtGlobalShortcut *shortcut = new QxtGlobalShortcut(this);
     shortcut->setShortcut(QKeySequence("Shift+Ctrl+9"));
     connect(shortcut, &QxtGlobalShortcut::activated,
