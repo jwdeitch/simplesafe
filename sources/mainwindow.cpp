@@ -38,18 +38,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::prepareTrayItem() {
     trayIconMenu = new QMenu(this);
+    openAction = new QAction(tr("&Open"), this);
+    connect(openAction, &QAction::triggered, this,
+        [=]() {
+        show();
+        raise();
+    });
+    trayIconMenu->addAction(openAction);
     quitAction = new QAction(tr("&Quit"), this);
     connect(quitAction, &QAction::triggered, this, &QCoreApplication::quit);
     trayIconMenu->addAction(quitAction);
-//#ifdef Q_OS_LINUX
-//    openAction = new QAction(tr("&Open"), this);
-//    connect(openAction, &QAction::triggered, this,
-//        [=]() {
-//        show();
-//        raise();
-//    });
-//        trayIconMenu->addAction(openAction);
-//#endif
+
     QxtGlobalShortcut *shortcut = new QxtGlobalShortcut(this);
     shortcut->setShortcut(QKeySequence("Shift+Ctrl+9"));
     connect(shortcut, &QxtGlobalShortcut::activated,
@@ -59,14 +58,14 @@ void MainWindow::prepareTrayItem() {
     });
 
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon->setIcon(QIcon(":/images/images/safe-light.png"));
+    trayIcon->setIcon(QIcon(":/images/images/Safe-menu.png"));
     trayIcon->show();
     trayIcon->setVisible(true);
     trayIcon->setContextMenu(trayIconMenu);
-    connect(trayIcon, &QSystemTrayIcon::activated, this, [this](){
-        show();
-        raise();
-    });
+//    connect(trayIcon, &QSystemTrayIcon::activated, this, [this](){
+//        show();
+//        raise();
+//    });
 }
 
 MainWindow::~MainWindow()

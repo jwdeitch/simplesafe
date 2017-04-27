@@ -76,6 +76,7 @@ private:
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     QAction *quitAction;
+    QAction *openAction;
 };
 
 #endif // MAINWINDOW_H

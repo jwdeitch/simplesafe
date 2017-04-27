@@ -7,5 +7,6 @@
         <file>images/safe.png</file>
         <file>images/back.png</file>
         <file>images/safe-light.png</file>
+        <file>images/Safe-menu.png</file>
     </qresource>
 </RCC>
