@@ -59,6 +59,7 @@ private slots:
     void loadSettings();
     void on_newpasswordtxt_textChanged(const QString &arg1);
     void lock();
+    void setAppToStartAutomatically ( bool startAutomatically );
     void resetLock();
     void initLock();
     void on_newpasswordtxt_returnPressed();

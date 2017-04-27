@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "headers/lockscreen.h"
 #include "qxtglobalshortcut.h"
+#include <QProcess>
 
 QString masterpassword = QString();
 QVector<QString> safeItems;
@@ -149,7 +150,7 @@ void MainWindow::on_createNewLoginBtn_clicked()
     }
     closeEditMode();
     ui->backBtn->setVisible(false);
-    ui->searchField->setFocus(true);
+    ui->searchField->setFocus();
     ui->newAssetFrame->setVisible(false);
 }
 
@@ -492,4 +493,90 @@ void MainWindow::on_resetMasterPassBtn_clicked()
     ls->resetMode();
     hide();
     ls->show();
+}
+
+
+// http://www.andreybutov.com/2015/10/18/how-do-i-make-my-qt-app-start-automatically-at-login/
+QString macOSXAppBundlePath()
+{
+#ifdef Q_OS_MAC
+    QDir dir = QDir ( QCoreApplication::applicationDirPath() );
+    dir.cdUp();
+    dir.cdUp();
+    QString absolutePath = dir.absolutePath();
+    // absolutePath will contain a "/" at the end,
+    // but we want the clean path to the .app bundle
+    if ( absolutePath.length() > 0 && absolutePath.right(1) == "/" ) {
+        absolutePath.chop(1);
+    }
+    return absolutePath;
+#else
+    return "";
+#endif
+}
+
+
+QString macOSXAppBundleName()
+{
+#ifdef Q_OS_MAC
+    QString bundlePath = macOSXAppBundlePath();
+    QFileInfo fileInfo(bundlePath);
+    return fileInfo.baseName();
+#else
+    return "";
+#endif
+}
+
+
+QString windowsAppPath()
+{
+#ifdef Q_OS_WIN
+    return QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+#else
+    return "";
+#endif
+}
+
+
+
+void MainWindow::setAppToStartAutomatically ( bool startAutomatically )
+{
+#if defined ( Q_OS_MAC )
+
+    // Remove any existing login entry for this app first, in case there was one
+    // from a previous installation, that may be under a different launch path.
+    {
+        QStringList args;
+        args << "-e tell application \"System Events\" to delete login item\""
+            + macOSXAppBundleName() + "\"";
+
+        QProcess::execute("osascript", args);
+    }
+
+    // Now install the login item, if needed.
+    if ( startAutomatically )
+    {
+        QStringList args;
+        args << "-e tell application \"System Events\" to make login item at end with properties {path:\"" + macOSXAppBundlePath() + "\", hidden:false}";
+
+        QProcess::execute("osascript", args);
+    }
+
+#elif defined ( Q_OS_WIN )
+
+    QString key = "SimpleSafe";
+
+    QSettings registrySettings(
+        "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+        QSettings::NativeFormat);
+
+    registrySettings.remove(key);
+
+    if ( startAutomatically ) {
+        registrySettings.setValue(key, QString("\"" + windowsAppPath() + "\""));
+    }
+
+    registrySettings.sync();
+
+#endif
 }
