@@ -18,7 +18,7 @@
     <rect>
      <x>7</x>
      <y>7</y>
-     <width>163</width>
+     <width>197</width>
      <height>16</height>
     </rect>
    </property>
@@ -42,9 +42,9 @@
   <widget class="QLabel" name="typeLabel">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>205</x>
      <y>5</y>
-     <width>59</width>
+     <width>15</width>
      <height>21</height>
     </rect>
    </property>
@@ -67,13 +67,13 @@ margin:0px;
 </string>
    </property>
    <property name="text">
-    <string>password</string>
+    <string>P</string>
    </property>
   </widget>
   <widget class="QLabel" name="copiedLabelMain">
    <property name="geometry">
     <rect>
-     <x>115</x>
+     <x>144</x>
      <y>8</y>
      <width>48</width>
      <height>16</height>

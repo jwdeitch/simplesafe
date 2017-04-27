@@ -8,6 +8,12 @@ safeitem::safeitem(QWidget *parent) :
     ui->setupUi(this);
     ui->copiedLabelMain->setVisible(false);
     ui->typeLabel->fontMetrics().width(ui->typeLabel->text());
+#ifdef Q_OS_LINUX
+    QFont font = ui->typeLabel->font();
+    font.setPixelSize(12);
+    ui->typeLabel->setFont(font);
+    ui->TitleLabel->setFont(font);
+#endif
 }
 
 void safeitem::setLabel(QString text) {

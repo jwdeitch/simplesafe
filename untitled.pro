@@ -13,7 +13,7 @@ TEMPLATE = app
 
 macx:ICON = $${PWD}/safe.icns
 macx:QMAKE_INFO_PLIST = $${PWD}/info.plist
-
+LIBS=-ldl
 include(botan.pri)
 include(qxtglobalshortcut5/qxt.pri)
 
